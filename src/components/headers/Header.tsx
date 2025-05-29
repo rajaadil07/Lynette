@@ -2,11 +2,10 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { createClient } from '@/utils/supabase/client'
 import { useRouter } from 'next/navigation'
 
 interface HeaderProps {
-  user: {
+  user?: {
     email?: string
     user_metadata?: {
       full_name?: string
@@ -18,20 +17,19 @@ interface HeaderProps {
 export default function Header({ user }: HeaderProps) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const router = useRouter()
-  const supabase = createClient()
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
+    // Mock sign out - redirect to login
     router.push('/login')
   }
 
-  const userInitials = user.user_metadata?.full_name
+  const userInitials = user?.user_metadata?.full_name
     ? user.user_metadata.full_name
         .split(' ')
         .map(name => name[0])
         .join('')
         .toUpperCase()
-    : user.email?.[0]?.toUpperCase() || 'U'
+    : user?.email?.[0]?.toUpperCase() || 'U'
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -39,7 +37,7 @@ export default function Header({ user }: HeaderProps) {
         <div className="flex justify-between items-center h-16">
           {/* Logo and Brand */}
           <div className="flex items-center">
-            <Link href="/workspace" className="flex items-center space-x-3">
+            <Link href="/dashboard" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
                 <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="none">
                   <path 
@@ -64,32 +62,26 @@ export default function Header({ user }: HeaderProps) {
                   </defs>
                 </svg>
               </div>
-              <span className="text-xl font-medium text-gray-900">Exec</span>
+              <span className="text-xl font-medium text-gray-900">Ghostwrite Pro</span>
             </Link>
           </div>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
-              href="/workspace" 
+              href="/dashboard" 
               className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200"
             >
-              Overview
+              Dashboard
             </Link>
             <Link 
-              href="/workspace/projects" 
+              href="/projects" 
               className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium transition-colors duration-200"
             >
               Projects
             </Link>
             <Link 
-              href="/workspace/team" 
-              className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium transition-colors duration-200"
-            >
-              Team
-            </Link>
-            <Link 
-              href="/workspace/settings" 
+              href="/settings" 
               className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium transition-colors duration-200"
             >
               Settings
@@ -107,10 +99,10 @@ export default function Header({ user }: HeaderProps) {
               </div>
               <div className="hidden sm:block text-left">
                 <div className="text-gray-900 font-medium">
-                  {user.user_metadata?.full_name || 'User'}
+                  {user?.user_metadata?.full_name || 'User'}
                 </div>
                 <div className="text-gray-500 text-xs">
-                  {user.email}
+                  {user?.email || 'user@example.com'}
                 </div>
               </div>
               <svg 
@@ -128,15 +120,15 @@ export default function Header({ user }: HeaderProps) {
               <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-1 z-50">
                 <div className="px-4 py-3 border-b border-gray-100">
                   <div className="text-sm font-medium text-gray-900">
-                    {user.user_metadata?.full_name || 'User'}
+                    {user?.user_metadata?.full_name || 'User'}
                   </div>
                   <div className="text-sm text-gray-500 truncate">
-                    {user.email}
+                    {user?.email || 'user@example.com'}
                   </div>
                 </div>
                 
                 <Link
-                  href="/workspace/profile"
+                  href="/profile"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => setIsUserMenuOpen(false)}
                 >
@@ -144,7 +136,7 @@ export default function Header({ user }: HeaderProps) {
                 </Link>
                 
                 <Link
-                  href="/workspace/preferences"
+                  href="/preferences"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => setIsUserMenuOpen(false)}
                 >
@@ -169,25 +161,19 @@ export default function Header({ user }: HeaderProps) {
       <div className="md:hidden border-t border-gray-200">
         <nav className="px-4 py-3 space-y-1">
           <Link 
-            href="/workspace" 
+            href="/dashboard" 
             className="block text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium"
           >
-            Overview
+            Dashboard
           </Link>
           <Link 
-            href="/workspace/projects" 
+            href="/projects" 
             className="block text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium"
           >
             Projects
           </Link>
           <Link 
-            href="/workspace/team" 
-            className="block text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium"
-          >
-            Team
-          </Link>
-          <Link 
-            href="/workspace/settings" 
+            href="/settings" 
             className="block text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium"
           >
             Settings

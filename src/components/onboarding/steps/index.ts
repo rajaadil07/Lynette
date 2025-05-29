@@ -1,4 +1,5 @@
-export { default as IntroStep } from './IntroStep'
 export { default as PersonalInfoStep } from './PersonalInfoStep'
-export { default as PreferencesStep } from './PreferencesStep'
-export { default as IntegrationStep } from './IntegrationStep' 
+export { default as ProjectDetailsStep } from './ProjectDetailsStep'
+export { default as ContractStep } from './ContractStep'
+export { default as PaymentStep } from './PaymentStep'
+export { default as CompletionStep } from './CompletionStep' 

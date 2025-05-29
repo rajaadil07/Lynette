@@ -1,6 +1,6 @@
 {
-  "name": "Reclaim",
-  "short_name": "Reclaim",
+  "name": "Ghostwriter",
+  "short_name": "Ghostwriter",
   "description": "AI-powered email and calendar management",
   "start_url": "/",
   "display": "standalone",

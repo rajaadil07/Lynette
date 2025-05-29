@@ -2,11 +2,10 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { createClient } from '@/utils/supabase/client'
 import { useRouter } from 'next/navigation'
 
 interface OrganizationHeaderProps {
-  user: {
+  user?: {
     id: string
     email?: string
     user_metadata?: {
@@ -14,13 +13,13 @@ interface OrganizationHeaderProps {
       avatar_url?: string
     }
   }
-  organization: {
+  organization?: {
     id: string
     name: string
     description?: string
   }
-  userRole: string
-  currentPath: string
+  userRole?: string
+  currentPath?: string
 }
 
 export default function OrganizationHeader({ 
@@ -31,28 +30,26 @@ export default function OrganizationHeader({
 }: OrganizationHeaderProps) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const router = useRouter()
-  const supabase = createClient()
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
+    // Mock sign out - redirect to login
     router.push('/login')
   }
 
-  const userInitials = user.user_metadata?.full_name
+  const userInitials = user?.user_metadata?.full_name
     ? user.user_metadata.full_name
         .split(' ')
         .map(name => name[0])
         .join('')
         .toUpperCase()
-    : user.email?.[0]?.toUpperCase() || 'U'
+    : user?.email?.[0]?.toUpperCase() || 'U'
 
-  const baseUrl = `/org/${organization.id}`
+  const baseUrl = `/dashboard`
 
   const navItems = [
-    { href: baseUrl, label: 'Overview', path: '' },
-    { href: `${baseUrl}/projects`, label: 'Projects', path: 'projects' },
-    { href: `${baseUrl}/team`, label: 'Team', path: 'team' },
-    { href: `${baseUrl}/settings`, label: 'Settings', path: 'settings' }
+    { href: baseUrl, label: 'Dashboard', path: '' },
+    { href: `/projects`, label: 'Projects', path: 'projects' },
+    { href: `/settings`, label: 'Settings', path: 'settings' }
   ]
 
   return (
@@ -88,7 +85,7 @@ export default function OrganizationHeader({
               </div>
               <div>
                 <div className="text-lg font-medium text-gray-900">
-                  {organization.name}
+                  {organization?.name || 'Ghostwrite Pro'}
                 </div>
                 {userRole === 'admin' && (
                   <div className="text-xs text-gray-500">Admin</div>
@@ -125,10 +122,10 @@ export default function OrganizationHeader({
               </div>
               <div className="hidden sm:block text-left">
                 <div className="text-gray-900 font-medium">
-                  {user.user_metadata?.full_name || 'User'}
+                  {user?.user_metadata?.full_name || 'User'}
                 </div>
                 <div className="text-gray-500 text-xs">
-                  {user.email}
+                  {user?.email || 'user@example.com'}
                 </div>
               </div>
               <svg 
@@ -146,18 +143,18 @@ export default function OrganizationHeader({
               <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-1 z-50">
                 <div className="px-4 py-3 border-b border-gray-100">
                   <div className="text-sm font-medium text-gray-900">
-                    {user.user_metadata?.full_name || 'User'}
+                    {user?.user_metadata?.full_name || 'User'}
                   </div>
                   <div className="text-sm text-gray-500 truncate">
-                    {user.email}
+                    {user?.email || 'user@example.com'}
                   </div>
                   <div className="text-xs text-gray-400 mt-1">
-                    {userRole} • {organization.name}
+                    {userRole || 'User'} • {organization?.name || 'Ghostwrite Pro'}
                   </div>
                 </div>
                 
                 <Link
-                  href={`${baseUrl}/profile`}
+                  href={`/profile`}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => setIsUserMenuOpen(false)}
                 >
@@ -165,7 +162,7 @@ export default function OrganizationHeader({
                 </Link>
                 
                 <Link
-                  href={`${baseUrl}/preferences`}
+                  href={`/preferences`}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => setIsUserMenuOpen(false)}
                 >

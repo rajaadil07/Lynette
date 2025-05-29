@@ -1,34 +1,33 @@
 import type { Metadata } from "next";
-import { PublicHeader } from "@/components";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Reclaim",
+  title: "Ghostwriter",
   description: "Effortlessly manage your email and calendar with natural conversation. Whether you're at your desk, on your commute, or mid-flight—unlock your freedom with AI-powered productivity.",
   keywords: "AI assistant, email management, calendar management, productivity, executive assistant, natural conversation, automation",
-  authors: [{ name: "Reclaim" }],
-  creator: "Reclaim",
-  publisher: "Reclaim",
+  authors: [{ name: "Ghostwriter" }],
+  creator: "Ghostwriter",
+  publisher: "Ghostwriter",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://reclaim.ai'),
+  metadataBase: new URL('https://Ghostwriter.ai'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Reclaim - Reclaim Your Day",
+    title: "Ghostwriter - Ghostwriter Your Day",
     description: "Effortlessly manage your email and calendar with natural conversation. Unlock your freedom with AI-powered productivity.",
-    url: 'https://reclaim.ai',
-    siteName: 'Reclaim',
+    url: 'https://Ghostwriter.ai',
+    siteName: 'Ghostwriter',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Reclaim - AI-powered email and calendar management',
+        alt: 'Ghostwriter - AI-powered email and calendar management',
       }
     ],
     locale: 'en_US',
@@ -36,10 +35,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Reclaim - Reclaim Your Day",
+    title: "Ghostwriter - Ghostwriter Your Day",
     description: "Effortlessly manage your email and calendar with natural conversation. Unlock your freedom with AI-powered productivity.",
     images: ['/og-image.png'],
-    creator: '@Reclaim',
+    creator: '@Ghostwriter',
   },
   robots: {
     index: true,
@@ -80,8 +79,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className="bg-white min-h-screen">
-        <PublicHeader />
+      <body className="antialiased">
         {children}
       </body>
     </html>

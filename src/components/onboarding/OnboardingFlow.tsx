@@ -1,38 +1,93 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { createClient } from '@/utils/supabase/client'
 
 import { User, FormData } from './types'
 import { ProgressBar } from './components'
 import { 
-  IntroStep, 
   PersonalInfoStep, 
-  PreferencesStep, 
-  IntegrationStep 
+  ProjectDetailsStep,
+  ContractStep,
+  PaymentStep,
+  CompletionStep 
 } from './steps'
 
 interface OnboardingFlowProps {
   user?: User
 }
 
-export default function OnboardingFlow({ user }: OnboardingFlowProps) {
+export default function OnboardingFlow({ }: OnboardingFlowProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState<FormData>({
+    // Personal Info
     name: '',
-    role: '',
-    briefingTime: '08:00',
-    briefingItems: ['news', 'emails', 'schedule', 'tasks'],
-    calendarProvider: ''
+    email: '',
+    persona: '',
+    
+    // Project Details
+    projectTitle: '',
+    projectType: '',
+    estimatedLength: '',
+    targetAudience: '',
+    
+    // Manuscript Details
+    currentStage: '',
+    previousExperience: '',
+    
+    // Process Preferences
+    communicationStyle: '',
+    feedbackFrequency: '',
+    
+    // Contract & Legal
+    ndaSigned: false,
+    contractUploaded: false,
+    
+    // Payment & Subscription
+    subscriptionTier: '',
+    
+    // Timeline & Deliverables
+    deadline: '',
+    milestonePreferences: []
   })
   
   const router = useRouter()
   const searchParams = useSearchParams()
-  const supabase = createClient()
 
-  const totalSteps = 4
+  const totalSteps = 5 // Updated to include payment step
+
+  // Load all form data from localStorage on mount
+  useEffect(() => {
+    const savedFormData = localStorage.getItem('ghostwriter-onboarding-data')
+    const savedStep = localStorage.getItem('ghostwriter-onboarding-step')
+    
+    if (savedFormData) {
+      try {
+        const parsedData = JSON.parse(savedFormData)
+        setFormData(parsedData)
+      } catch (error) {
+        console.error('Failed to parse saved form data:', error)
+      }
+    }
+    
+    if (savedStep) {
+      try {
+        const stepNumber = parseInt(savedStep, 10)
+        if (stepNumber >= 1 && stepNumber <= totalSteps) {
+          setCurrentStep(stepNumber)
+        }
+      } catch (error) {
+        console.error('Failed to parse saved step:', error)
+      }
+    }
+  }, [totalSteps])
+
+  // Auto-save form data and current step to localStorage
+  useEffect(() => {
+    localStorage.setItem('ghostwriter-onboarding-data', JSON.stringify(formData))
+    localStorage.setItem('ghostwriter-onboarding-step', currentStep.toString())
+  }, [formData, currentStep])
 
   const nextStep = () => {
     if (currentStep < totalSteps) {
@@ -46,87 +101,37 @@ export default function OnboardingFlow({ user }: OnboardingFlowProps) {
     }
   }
 
-  const completeOnboarding = async () => {
+  const completeOnboarding = useCallback(async () => {
     setLoading(true)
     try {
-      console.log('Completing onboarding with data:', formData)
+      console.log('Completing ghostwriting onboarding with data:', formData)
+      
+      // Simulate project setup process
+      await new Promise(resolve => setTimeout(resolve, 2000))
       
       // Clean up localStorage
-      localStorage.removeItem('onboarding-form-data')
+      localStorage.removeItem('ghostwriter-onboarding-data')
+      localStorage.removeItem('ghostwriter-onboarding-step')
+      localStorage.removeItem('ghostwriter-onboarding-personal')
+      localStorage.removeItem('ghostwriter-onboarding-project')
+      localStorage.removeItem('ghostwriter-onboarding-contract')
+      localStorage.removeItem('ghostwriter-onboarding-payment')
       
-      // Simulate onboarding completion and redirect to home
-      console.log('✅ Onboarding completed successfully! Redirecting to home page')
-      router.push('/')
+      // Redirect to a static dashboard
+      console.log('✅ Ghostwriting onboarding completed! Redirecting to dashboard')
+      router.push('/dashboard')
     } catch (error) {
       console.error('Onboarding error:', error)
-      // Show error message to user
       const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred'
       alert(`Onboarding failed: ${errorMessage}`)
     } finally {
       setLoading(false)
     }
-  }
-
-  // Restore form data from localStorage on component mount
-  useEffect(() => {
-    const savedFormData = localStorage.getItem('onboarding-form-data')
-    if (savedFormData) {
-      try {
-        const parsedData = JSON.parse(savedFormData)
-        setFormData(parsedData)
-        setCurrentStep(4) // Go to OAuth step if we have saved data
-      } catch (error) {
-        console.error('Failed to parse saved form data:', error)
-      }
-    }
-  }, [])
-
-  // Handle OAuth success redirect and auto-complete onboarding
-  useEffect(() => {
-    const oauthSuccessParam = searchParams.get('oauth_success')
-    const provider = searchParams.get('provider')
-    const userEmail = searchParams.get('user_email')
-    const userName = searchParams.get('user_name')
-    const googleUserId = searchParams.get('user_id')
-    
-    if (oauthSuccessParam === 'true' && provider === 'google') {
-      // Restore saved form data and add OAuth provider
-      const savedFormData = localStorage.getItem('onboarding-form-data')
-      if (savedFormData) {
-        try {
-          const parsedData = JSON.parse(savedFormData)
-          setFormData({
-            ...parsedData,
-            calendarProvider: 'google'
-          })
-          
-          // Auto-complete onboarding since OAuth is done
-          setTimeout(() => {
-            completeOnboarding()
-          }, 1000) // Small delay to show success state
-          
-        } catch (error) {
-          console.error('Failed to restore form data:', error)
-        }
-      }
-      
-      // Clean up saved data
-      localStorage.removeItem('onboarding-form-data')
-      
-      // Show success message
-      console.log('OAuth authentication successful! Auto-completing onboarding...', { 
-        userEmail, 
-        userName, 
-        googleUserId 
-      })
-    }
-  }, [searchParams])
+  }, [router, formData])
 
   const renderCurrentStep = () => {
     switch (currentStep) {
       case 1:
-        return <IntroStep onNext={nextStep} />
-      case 2:
         return (
           <PersonalInfoStep
             formData={formData}
@@ -136,9 +141,19 @@ export default function OnboardingFlow({ user }: OnboardingFlowProps) {
             loading={loading}
           />
         )
+      case 2:
+        return (
+          <ProjectDetailsStep
+            formData={formData}
+            setFormData={setFormData}
+            onNext={nextStep}
+            onBack={prevStep}
+            loading={loading}
+          />
+        )
       case 3:
         return (
-          <PreferencesStep
+          <ContractStep
             formData={formData}
             setFormData={setFormData}
             onNext={nextStep}
@@ -148,7 +163,17 @@ export default function OnboardingFlow({ user }: OnboardingFlowProps) {
         )
       case 4:
         return (
-          <IntegrationStep
+          <PaymentStep
+            formData={formData}
+            setFormData={setFormData}
+            onNext={nextStep}
+            onBack={prevStep}
+            loading={loading}
+          />
+        )
+      case 5:
+        return (
+          <CompletionStep
             formData={formData}
             setFormData={setFormData}
             onNext={nextStep}
@@ -158,14 +183,24 @@ export default function OnboardingFlow({ user }: OnboardingFlowProps) {
           />
         )
       default:
-        return <IntroStep onNext={nextStep} />
+        return (
+          <PersonalInfoStep
+            formData={formData}
+            setFormData={setFormData}
+            onNext={nextStep}
+            onBack={prevStep}
+            loading={loading}
+          />
+        )
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-purple-50 to-orange-50 relative overflow-hidden">
-      {/* Progress Bar */}
-      <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+      {/* Progress Bar - Only show for first 4 steps */}
+      {currentStep < 5 && (
+        <ProgressBar currentStep={currentStep} totalSteps={4} />
+      )}
 
       {/* Current Step Content */}
       {renderCurrentStep()}
