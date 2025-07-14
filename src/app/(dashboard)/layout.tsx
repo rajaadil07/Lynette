@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dashboard - Ghostwrite Pro",
-  description: "Manage your ghostwriting projects and clients",
+  title: "Dashboard - GhostSync",
+  description: "Connect and manage your ghostwriting projects and clients with crystal-clear visibility",
 };
 
 export default function DashboardLayout({

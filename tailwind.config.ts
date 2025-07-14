@@ -13,41 +13,54 @@ const config: Config = {
         "spin-slow": "spin 8s linear infinite",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        serif: ["var(--font-lora)", ...defaultTheme.fontFamily.serif],
+        inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        lora: ["var(--font-lora)", ...defaultTheme.fontFamily.serif],
       },
       colors: {
+        // Brand Colors from Guidelines
+        brand: {
+          dark: "#1B1B1F",        // Primary background and base UI
+          gray: "#3C3C44",        // Body text, input fields
+          light: "#F8F9FA",       // Primary background contrast
+          blue: "#5D9CEC",        // Accent, CTA buttons
+          yellow: "#FBC02D",      // Highlights, emphasis, features
+        },
+        
+        // Semantic color mappings using brand colors
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        input: "#3C3C44",           // Brand gray for inputs
+        ring: "#5D9CEC",            // Brand blue for focus rings
+        background: "#1B1B1F",      // Brand dark for background
+        foreground: "#F8F9FA",      // Brand light for text
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#5D9CEC",       // Brand blue
+          foreground: "#F8F9FA",    // Brand light
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#3C3C44",       // Brand gray
+          foreground: "#F8F9FA",    // Brand light
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#3C3C44",       // Brand gray
+          foreground: "#F8F9FA",    // Brand light
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#FBC02D",       // Brand yellow for accents
+          foreground: "#1B1B1F",    // Brand dark for accent text
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "#1B1B1F",       // Brand dark
+          foreground: "#F8F9FA",    // Brand light
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "#1B1B1F",       // Brand dark
+          foreground: "#F8F9FA",    // Brand light
         },
       },
     },

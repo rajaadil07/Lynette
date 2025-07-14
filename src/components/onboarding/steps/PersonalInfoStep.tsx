@@ -30,7 +30,7 @@ export default function PersonalInfoStep({
   
   // Load data from localStorage on mount
   useEffect(() => {
-    const savedData = localStorage.getItem('ghostwriter-onboarding-personal')
+    const savedData = localStorage.getItem('ghostsync-onboarding-personal')
     if (savedData) {
       try {
         const parsed = JSON.parse(savedData)
@@ -52,7 +52,7 @@ export default function PersonalInfoStep({
       persona: updatedData.persona,
       projectType: updatedData.projectType
     }
-    localStorage.setItem('ghostwriter-onboarding-personal', JSON.stringify(personalData))
+    localStorage.setItem('ghostsync-onboarding-personal', JSON.stringify(personalData))
   }
 
   const isFormValid = formData.name && formData.email && formData.persona && formData.projectType
@@ -62,7 +62,7 @@ export default function PersonalInfoStep({
       <div className="w-full max-w-md space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-2xl font-medium text-gray-900">Welcome to Ghostwrite Pro</h1>
+          <h1 className="text-2xl font-medium text-gray-900">Welcome to GhostSync</h1>
           <p className="text-gray-600">How will you primarily be using this platform?</p>
         </div>
 

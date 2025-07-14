@@ -32,7 +32,7 @@ export default function ProjectDetailsStep({
   
   // Load data from localStorage on mount
   useEffect(() => {
-    const savedData = localStorage.getItem('ghostwriter-onboarding-project')
+    const savedData = localStorage.getItem('ghostsync-onboarding-project')
     if (savedData) {
       try {
         const parsed = JSON.parse(savedData)
@@ -57,7 +57,7 @@ export default function ProjectDetailsStep({
       communicationStyle: updatedData.communicationStyle,
       feedbackFrequency: updatedData.feedbackFrequency
     }
-    localStorage.setItem('ghostwriter-onboarding-project', JSON.stringify(projectData))
+    localStorage.setItem('ghostsync-onboarding-project', JSON.stringify(projectData))
   }
 
   const isFormValid = formData.projectTitle && formData.estimatedLength && formData.targetAudience && 

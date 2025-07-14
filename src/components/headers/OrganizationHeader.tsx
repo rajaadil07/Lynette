@@ -59,33 +59,16 @@ export default function OrganizationHeader({
           {/* Logo and Organization */}
           <div className="flex items-center">
             <Link href={baseUrl} className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="none">
-                  <path 
-                    d="M4 10.667C4 7.727 6.727 5.333 10 5.333H22C25.273 5.333 28 7.727 28 10.667V18.667C28 21.607 25.273 24 22 24H12.8L7.2 29.333C6.933 29.6 6.533 29.733 6.133 29.733C5.733 29.733 5.333 29.6 5.067 29.333C4.8 29.067 4.667 28.667 4.667 28.267V25.6C4.4 25.2 4 24.667 4 24V10.667Z" 
-                    stroke="currentColor" 
-                    strokeWidth="1.5" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <rect x="11" y="13" width="12" height="2" rx="1" fill="url(#gradient1)" opacity="0.8"/>
-                  <rect x="12" y="17" width="8" height="2" rx="1" fill="url(#gradient2)" opacity="0.7"/>
-                  <defs>
-                    <linearGradient id="gradient1" x1="11" y1="14" x2="23" y2="14" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#8EBEFE"/>
-                      <stop offset="1" stopColor="#5087FF"/>
-                    </linearGradient>
-                    <linearGradient id="gradient2" x1="12" y1="18" x2="20" y2="18" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#73A5FF"/>
-                      <stop offset="1" stopColor="#6095FF"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+              <div className="w-8 h-8">
+                <img 
+                  src="/2.svg" 
+                  alt="GhostSync" 
+                  className="w-full h-full"
+                />
               </div>
               <div>
                 <div className="text-lg font-medium text-gray-900">
-                  {organization?.name || 'Ghostwrite Pro'}
+                  {organization?.name || 'GhostSync'}
                 </div>
                 {userRole === 'admin' && (
                   <div className="text-xs text-gray-500">Admin</div>
@@ -149,7 +132,7 @@ export default function OrganizationHeader({
                     {user?.email || 'user@example.com'}
                   </div>
                   <div className="text-xs text-gray-400 mt-1">
-                    {userRole || 'User'} • {organization?.name || 'Ghostwrite Pro'}
+                    {userRole || 'User'} • {organization?.name || 'GhostSync'}
                   </div>
                 </div>
                 

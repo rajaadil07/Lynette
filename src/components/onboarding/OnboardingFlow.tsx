@@ -59,8 +59,8 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
 
   // Load all form data from localStorage on mount
   useEffect(() => {
-    const savedFormData = localStorage.getItem('ghostwriter-onboarding-data')
-    const savedStep = localStorage.getItem('ghostwriter-onboarding-step')
+    const savedFormData = localStorage.getItem('ghostsync-onboarding-data')
+    const savedStep = localStorage.getItem('ghostsync-onboarding-step')
     
     if (savedFormData) {
       try {
@@ -85,8 +85,8 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
 
   // Auto-save form data and current step to localStorage
   useEffect(() => {
-    localStorage.setItem('ghostwriter-onboarding-data', JSON.stringify(formData))
-    localStorage.setItem('ghostwriter-onboarding-step', currentStep.toString())
+    localStorage.setItem('ghostsync-onboarding-data', JSON.stringify(formData))
+    localStorage.setItem('ghostsync-onboarding-step', currentStep.toString())
   }, [formData, currentStep])
 
   const nextStep = () => {
@@ -110,12 +110,12 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
       await new Promise(resolve => setTimeout(resolve, 2000))
       
       // Clean up localStorage
-      localStorage.removeItem('ghostwriter-onboarding-data')
-      localStorage.removeItem('ghostwriter-onboarding-step')
-      localStorage.removeItem('ghostwriter-onboarding-personal')
-      localStorage.removeItem('ghostwriter-onboarding-project')
-      localStorage.removeItem('ghostwriter-onboarding-contract')
-      localStorage.removeItem('ghostwriter-onboarding-payment')
+      localStorage.removeItem('ghostsync-onboarding-data')
+      localStorage.removeItem('ghostsync-onboarding-step')
+      localStorage.removeItem('ghostsync-onboarding-personal')
+      localStorage.removeItem('ghostsync-onboarding-project')
+      localStorage.removeItem('ghostsync-onboarding-contract')
+      localStorage.removeItem('ghostsync-onboarding-payment')
       
       // Redirect to a static dashboard
       console.log('✅ Ghostwriting onboarding completed! Redirecting to dashboard')

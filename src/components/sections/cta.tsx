@@ -6,22 +6,17 @@ import { motion } from 'framer-motion'
 
 export default function CTASection() {
   return (
-    <section className="relative bg-white py-16 md:py-24 overflow-hidden">
+    <section className="relative bg-brand-dark py-16 md:py-24 overflow-hidden">
       <div className="relative px-8">
-        {/* Centered Sophisticated gradient blob - Red theme */}
+        {/* Centered gradient background elements */}
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] animate-pulse rounded-full bg-gradient-to-br from-[#FE8E8E]/60 via-[#FF7373]/40 to-[#FF5050]/65 blur-3xl opacity-70"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] animate-pulse rounded-full bg-gradient-to-br from-brand-yellow/20 via-brand-blue/15 to-brand-yellow/25 blur-3xl opacity-60"
           aria-hidden="true"
         />
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[450px] animate-pulse rounded-full bg-gradient-to-r from-[#FF6060]/35 to-[#FF5454]/25 blur-2xl"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[450px] animate-pulse rounded-full bg-gradient-to-r from-brand-blue/20 to-brand-yellow/15 blur-2xl"
           aria-hidden="true"
           style={{ animationDelay: '1.5s', animationDuration: '4s' }}
-        />
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] animate-pulse rounded-full bg-gradient-to-br from-[#FF7373]/20 to-[#FF6A6A]/30 blur-xl"
-          aria-hidden="true"
-          style={{ animationDelay: '0.8s', animationDuration: '5s' }}
         />
 
         <div className="relative max-w-7xl mx-auto">
@@ -32,28 +27,28 @@ export default function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-6xl md:text-7xl xl:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-900 mb-8"
+              className="text-5xl md:text-6xl xl:text-7xl font-inter font-light leading-[0.95] tracking-tight text-brand-light mb-8"
             >
               Ready to transform
               <br />
-              <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-blue to-brand-yellow bg-clip-text text-transparent font-medium">
                 your business?
               </span>
             </motion.h2>
 
-            {/* Premium Subtitle */}
+            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-gray-600 leading-relaxed font-light tracking-wide"
+              className="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-brand-gray leading-relaxed font-inter font-light tracking-wide"
             >
-              Join hundreds of ghostwriters who've eliminated client confusion, 
-              streamlined their workflow, and built thriving businesses.
+              Join hundreds of ghostwriters who've connected with their clients, 
+              eliminated confusion, and built thriving businesses through seamless collaboration.
             </motion.p>
 
-            {/* Enhanced CTA Section */}
+            {/* CTA Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -69,6 +64,14 @@ export default function CTASection() {
                   START YOUR FREE TRIAL
                 </Button>
               </Link>
+              <Link href="/pricing" className="group">
+                <Button 
+                  variant="outline"
+                  className="transform transition-all duration-300 group-hover:scale-105"
+                >
+                  VIEW PRICING
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Trust Indicators */}
@@ -77,22 +80,22 @@ export default function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="mt-12 flex flex-col sm:flex-row gap-8 justify-center items-center text-sm text-gray-500 font-light"
+              className="mt-12 flex flex-col sm:flex-row gap-8 justify-center items-center text-sm text-brand-gray font-inter font-light"
             >
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                 </svg>
                 <span>14-day free trial</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
                 <span>No credit card required</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span>Cancel anytime</span>

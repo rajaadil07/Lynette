@@ -1,11 +1,11 @@
 {
-  "name": "Ghostwriter",
-  "short_name": "Ghostwriter",
-  "description": "AI-powered email and calendar management",
+  "name": "GhostSync",
+  "short_name": "GhostSync",
+  "description": "Professional ghostwriting project management platform",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1f2937",
+  "theme_color": "#fbc02d",
   "orientation": "portrait-primary",
   "icons": [
     {

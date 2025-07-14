@@ -68,7 +68,7 @@ export default function PaymentStep({
   
   // Load data from localStorage on mount
   useEffect(() => {
-    const savedData = localStorage.getItem('ghostwriter-onboarding-payment')
+    const savedData = localStorage.getItem('ghostsync-onboarding-payment')
     if (savedData) {
       try {
         const parsed = JSON.parse(savedData)
@@ -87,7 +87,7 @@ export default function PaymentStep({
     const paymentData = {
       subscriptionTier: tierId
     }
-    localStorage.setItem('ghostwriter-onboarding-payment', JSON.stringify(paymentData))
+    localStorage.setItem('ghostsync-onboarding-payment', JSON.stringify(paymentData))
   }
 
   const selectedTier = subscriptionTiers.find(tier => tier.id === formData.subscriptionTier)

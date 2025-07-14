@@ -1,33 +1,50 @@
 import type { Metadata } from "next";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 
+// Configure Inter font (Primary)
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+// Configure Lora font (Secondary)
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Ghostwriter",
-  description: "Effortlessly manage your email and calendar with natural conversation. Whether you're at your desk, on your commute, or mid-flight—unlock your freedom with AI-powered productivity.",
-  keywords: "AI assistant, email management, calendar management, productivity, executive assistant, natural conversation, automation",
-  authors: [{ name: "Ghostwriter" }],
-  creator: "Ghostwriter",
-  publisher: "Ghostwriter",
+  title: "GhostSync",
+  description: "Connect your ghostwriting projects with crystal-clear client visibility and seamless workflow management. Turn satisfied authors into raving fans with our ghost link platform.",
+  keywords: "ghostwriting, project management, client collaboration, author services, manuscript management, publishing workflow, freelance writing, content creation",
+  authors: [{ name: "GhostSync" }],
+  creator: "GhostSync",
+  publisher: "GhostSync",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://Ghostwriter.ai'),
+  metadataBase: new URL('https://GhostSync.ai'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Ghostwriter - Ghostwriter Your Day",
-    description: "Effortlessly manage your email and calendar with natural conversation. Unlock your freedom with AI-powered productivity.",
-    url: 'https://Ghostwriter.ai',
-    siteName: 'Ghostwriter',
+    title: "GhostSync - Where Ghostwriters Connect & Deliver Like Pros",
+    description: "Connect your ghostwriting projects with crystal-clear client visibility and seamless workflow management. Turn satisfied authors into raving fans.",
+    url: 'https://GhostSync.ai',
+    siteName: 'GhostSync',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Ghostwriter - AI-powered email and calendar management',
+        alt: 'GhostSync - Professional ghostwriting project management',
       }
     ],
     locale: 'en_US',
@@ -35,10 +52,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Ghostwriter - Ghostwriter Your Day",
-    description: "Effortlessly manage your email and calendar with natural conversation. Unlock your freedom with AI-powered productivity.",
+    title: "GhostSync - Where Ghostwriters Connect & Deliver Like Pros",
+    description: "Connect your ghostwriting projects with crystal-clear client visibility and seamless workflow management. Turn satisfied authors into raving fans.",
     images: ['/og-image.png'],
-    creator: '@Ghostwriter',
+    creator: '@GhostSync',
   },
   robots: {
     index: true,
@@ -73,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

@@ -1,34 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Color Variables */
+  --brand-dark: #1B1B1F;      /* Primary background and base UI */
+  --brand-gray: #3C3C44;      /* Body text, input fields */
+  --brand-light: #F8F9FA;     /* Primary background contrast */
+  --brand-blue: #5D9CEC;      /* Accent, CTA buttons */
+  --brand-yellow: #FBC02D;    /* Highlights, emphasis, features */
+  
+  /* Semantic mappings */
+  --background: var(--brand-dark);
+  --foreground: var(--brand-light);
+  --border: var(--brand-gray);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-lora);
 }
 
-/* Force white background and remove dark mode */
+/* Enforce brand theme (no light mode override) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    --background: var(--brand-dark);
+    --foreground: var(--brand-light);
   }
 }
 
 body {
-  background: #ffffff !important;
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--brand-dark) !important;
+  color: var(--brand-light);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 html {
-  background: #ffffff !important;
+  background: var(--brand-dark) !important;
 }
+
+/* Typography classes using brand fonts */
+.font-primary {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-secondary {
+  font-family: var(--font-lora), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Brand color utility classes */
+.text-brand-light { color: var(--brand-light); }
+.text-brand-gray { color: var(--brand-gray); }
+.text-brand-blue { color: var(--brand-blue); }
+.text-brand-yellow { color: var(--brand-yellow); }
+.bg-brand-dark { background-color: var(--brand-dark); }
+.bg-brand-light { background-color: var(--brand-light); }
+.bg-brand-blue { background-color: var(--brand-blue); }
+.bg-brand-yellow { background-color: var(--brand-yellow); }
 
 /* Custom scrollbar utilities */
 @layer utilities {

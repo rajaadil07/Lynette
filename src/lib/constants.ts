@@ -1,13 +1,13 @@
 export const SITE_CONFIG = {
-  name: 'SagentaAI',
-  title: 'AI Multi-Agent Communication Platform',
-  description: 'Build and manage specialized AI agents for 24/7/365 engagement via calls, texts, and emails. Retain full control over your agents\' actions and communications with granular customization options.',
-  url: 'http://localhost:3000',
+  name: 'GhostSync',
+  title: 'Professional Ghostwriting Project Management Platform',
+  description: 'Connect your ghostwriting projects with crystal-clear client visibility and seamless workflow management. Turn satisfied authors into raving fans with our ghost link platform.',
+  url: 'https://GhostSync.ai',
   ogImage: '/og-image.png',
   links: {
-    twitter: 'https://x.com/radil32',
-    linkedin: 'https://www.linkedin.com/in/rajaadil/',
-    email: 'raja@buildalytic.com'
+    twitter: 'https://x.com/ghostsync',
+    linkedin: 'https://www.linkedin.com/company/ghostsync/',
+    email: 'hello@ghostsync.ai'
   }
 }
 

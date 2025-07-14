@@ -148,7 +148,7 @@ export default function CompletionStep({
             </div>
             
             <div className="space-y-3">
-              <h1 className="text-2xl font-medium text-gray-900">Welcome to Ghostwrite Pro</h1>
+              <h1 className="text-2xl font-medium text-gray-900">Welcome to GhostSync</h1>
               <p className="text-gray-600">Your professional workspace is ready</p>
               <div className="inline-flex items-center space-x-2 px-3 py-1 bg-gray-100 text-gray-800 rounded text-sm">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -243,7 +243,7 @@ export default function CompletionStep({
                 <div className="w-6 h-6 bg-gray-900 text-white rounded-full flex items-center justify-center text-xs font-medium">3</div>
                 <div>
                   <div className="font-medium text-gray-900">Schedule Your First Meeting</div>
-                  <div className="text-gray-600 text-xs">Connect with your ghostwriter to begin</div>
+                  <div className="text-gray-600 text-xs">Connect with your ghostwriter to begin your journey</div>
                 </div>
               </div>
             </div>

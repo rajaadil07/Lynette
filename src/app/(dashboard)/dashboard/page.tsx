@@ -84,9 +84,9 @@ export default function DashboardPage() {
     const loadOnboardingData = () => {
       try {
         // Load main onboarding data
-        const mainData = localStorage.getItem('ghostwriter-onboarding-data')
-        const personalData = localStorage.getItem('ghostwriter-onboarding-personal')
-        const projectDetailsData = localStorage.getItem('ghostwriter-onboarding-project')
+        const mainData = localStorage.getItem('ghostsync-onboarding-data')
+        const personalData = localStorage.getItem('ghostsync-onboarding-personal')
+        const projectDetailsData = localStorage.getItem('ghostsync-onboarding-project')
         
         let combinedData: Partial<ProjectData> = {}
         
@@ -143,10 +143,14 @@ export default function DashboardPage() {
         {/* Logo */}
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">GP</span>
+            <div className="w-8 h-8">
+              <img 
+                src="/2.svg" 
+                alt="GhostSync" 
+                className="w-full h-full"
+              />
             </div>
-            <span className="font-semibold text-gray-900">Ghostwrite Pro</span>
+            <span className="font-semibold text-gray-900">GhostSync</span>
             <div className="ml-auto">
               <button className="text-gray-400 hover:text-gray-600">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
