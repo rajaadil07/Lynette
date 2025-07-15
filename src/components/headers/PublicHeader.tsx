@@ -16,15 +16,15 @@ export default function PublicHeader() {
   return (
     <header className="absolute top-0 left-0 w-full z-50 bg-brand-dark/80 backdrop-blur-sm">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-32 md:h-40 lg:h-44">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image 
               src="/logo.png" 
               alt="GhostSync" 
-              width={180} 
-              height={60}
-              className="h-12 w-auto"
+              width={420} 
+              height={140}
+              className="h-24 md:h-32 lg:h-36 w-auto"
               priority
             />
           </Link>

@@ -6,102 +6,59 @@ import { motion } from 'framer-motion'
 
 export default function CTASection() {
   return (
-    <section className="relative bg-brand-dark py-16 md:py-24 overflow-hidden">
-      <div className="relative px-8">
-        {/* Centered gradient background elements */}
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] animate-pulse rounded-full bg-gradient-to-br from-brand-yellow/20 via-brand-blue/15 to-brand-yellow/25 blur-3xl opacity-60"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[450px] animate-pulse rounded-full bg-gradient-to-r from-brand-blue/20 to-brand-yellow/15 blur-2xl"
-          aria-hidden="true"
-          style={{ animationDelay: '1.5s', animationDuration: '4s' }}
-        />
+    <section className="relative min-h-[80vh] pt-32 lg:pt-40 pb-0 overflow-hidden bg-[#1B1B1F]">
+      {/* Clean gradient background matching hero */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1B1B1F] to-[#16161A]" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#5D9CEC]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FBC02D]/5 rounded-full blur-3xl" />
+      </div>
 
-        <div className="relative max-w-7xl mx-auto">
-          {/* Centered CTA Content */}
-          <div className="text-center max-w-5xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-5xl md:text-6xl xl:text-7xl font-inter font-light leading-[0.95] tracking-tight text-brand-light mb-8"
-            >
-              Ready to transform
-              <br />
-              <span className="bg-gradient-to-r from-brand-blue to-brand-yellow bg-clip-text text-transparent font-medium">
-                your business?
-              </span>
-            </motion.h2>
+      {/* Main content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-center min-h-[60vh]">
+        {/* Centered CTA Content */}
+        <div className="text-center max-w-5xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="text-5xl md:text-6xl xl:text-7xl font-inter font-light leading-[0.95] tracking-tight text-[#F8F9FA] mb-8"
+          >
+            Ready to transform
+            <br />
+            <span className="font-lora italic text-[#5D9CEC]">
+              your business?
+            </span>
+          </motion.h2>
 
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-brand-gray leading-relaxed font-inter font-light tracking-wide"
-            >
-              Join hundreds of ghostwriters who've connected with their clients, 
-              eliminated confusion, and built thriving businesses through seamless collaboration.
-            </motion.p>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-[#F8F9FA]/60 leading-relaxed font-inter"
+          >
+            Join hundreds of ghostwriters who've connected with their clients, 
+            eliminated confusion, and built thriving businesses through seamless collaboration.
+          </motion.p>
 
-            {/* CTA Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
-              <Link href="/signup" className="group">
-                <Button 
-                  variant="hero-cta"
-                  className="transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg"
-                >
-                  START YOUR FREE TRIAL
-                </Button>
-              </Link>
-              <Link href="/pricing" className="group">
-                <Button 
-                  variant="outline"
-                  className="transform transition-all duration-300 group-hover:scale-105"
-                >
-                  VIEW PRICING
-                </Button>
-              </Link>
-            </motion.div>
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="mt-12 flex justify-center mb-20"
+          >
+            <Link href="/signup">
+              <Button className="h-14 px-12 bg-[#5D9CEC] hover:bg-[#4D8CDB] text-white font-inter font-medium text-lg rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+                Get started free
+              </Button>
+            </Link>
+          </motion.div>
 
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="mt-12 flex flex-col sm:flex-row gap-8 justify-center items-center text-sm text-brand-gray font-inter font-light"
-            >
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                </svg>
-                <span>14-day free trial</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span>No credit card required</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Cancel anytime</span>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </div>
     </section>

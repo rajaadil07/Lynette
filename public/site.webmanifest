@@ -1,31 +1,35 @@
 {
   "name": "GhostSync",
   "short_name": "GhostSync",
-  "description": "Professional ghostwriting project management platform",
+  "description": "Where Ghostwriters Connect & Deliver Like Pros",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#fbc02d",
+  "background_color": "#1B1B1F",
+  "theme_color": "#5D9CEC",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
     },
     {
-      "src": "/icon-192.png",
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ],
   "categories": ["productivity", "business", "utilities"],
   "lang": "en",
   "dir": "ltr"
-} 
+}
