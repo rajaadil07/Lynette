@@ -1,8 +1,6 @@
 import { OnboardingStepProps } from '../types'
 import { useEffect } from 'react'
 
-interface ProjectDetailsStepProps extends OnboardingStepProps {}
-
 const manuscriptStages = [
   { id: 'idea', label: 'Just an Idea', description: 'Starting from scratch' },
   { id: 'outline', label: 'Outline Ready', description: 'Have chapter breakdown' },
@@ -28,7 +26,7 @@ export default function ProjectDetailsStep({
   setFormData, 
   onNext, 
   onBack 
-}: ProjectDetailsStepProps) {
+}: OnboardingStepProps) {
   
   // Load data from localStorage on mount
   useEffect(() => {
@@ -76,7 +74,7 @@ export default function ProjectDetailsStep({
         <div className="space-y-5">
           {/* Project Title */}
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">What's your project title?</label>
+            <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your project title?</label>
             <input
               type="text"
               value={formData.projectTitle}
@@ -123,7 +121,7 @@ export default function ProjectDetailsStep({
 
           {/* Current Stage */}
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">What's your current manuscript stage?</label>
+            <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your current manuscript stage?</label>
             <div className="relative">
               <select
                 value={formData.currentStage}
@@ -145,7 +143,7 @@ export default function ProjectDetailsStep({
 
           {/* Writing Experience */}
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">What's your writing experience level?</label>
+            <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your writing experience level?</label>
             <div className="relative">
               <select
                 value={formData.previousExperience}

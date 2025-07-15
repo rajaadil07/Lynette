@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 interface ProjectData {
   // Personal info
@@ -144,9 +145,11 @@ export default function DashboardPage() {
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8">
-              <img 
+              <Image 
                 src="/2.svg" 
                 alt="GhostSync" 
+                width={32}
+                height={32}
                 className="w-full h-full"
               />
             </div>

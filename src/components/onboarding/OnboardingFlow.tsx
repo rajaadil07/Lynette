@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 import { User, FormData } from './types'
 import { ProgressBar } from './components'
@@ -53,7 +53,6 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
   })
   
   const router = useRouter()
-  const searchParams = useSearchParams()
 
   const totalSteps = 5 // Updated to include payment step
 

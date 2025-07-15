@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import { OnboardingStepProps } from '../types'
 
-interface ContractStepProps extends OnboardingStepProps {}
-
 export default function ContractStep({ 
   formData, 
   setFormData, 
   onNext, 
   onBack 
-}: ContractStepProps) {
+}: OnboardingStepProps) {
   const [dragActive, setDragActive] = useState(false)
 
   const handleFileUpload = (files: FileList | null) => {

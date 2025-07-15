@@ -67,7 +67,7 @@ export default function StatusCard({
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-8 py-6">
       <div className="w-full max-w-sm">
         {/* Status Icon */}
-        <StatusIcon type={type} size="lg" animated />
+        <StatusIcon type={type} size="lg" />
 
         {/* Header */}
         <div className="text-center mb-10">

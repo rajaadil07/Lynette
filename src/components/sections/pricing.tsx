@@ -76,7 +76,7 @@ export default function Pricing() {
             </span>
           </h2>
           <p className="mt-6 text-lg text-[#F8F9FA]/60 max-w-2xl mx-auto font-inter">
-            Start free, upgrade when you're ready. No hidden fees, no surprises.
+            Start free, upgrade when you&apos;re ready. No hidden fees, no surprises.
           </p>
         </div>
 

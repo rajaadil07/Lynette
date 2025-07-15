@@ -40,7 +40,7 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-[#F8F9FA]/60 leading-relaxed font-inter"
           >
-            Join hundreds of ghostwriters who've connected with their clients, 
+            Join hundreds of ghostwriters who&apos;ve connected with their clients, 
             eliminated confusion, and built thriving businesses through seamless collaboration.
           </motion.p>
 

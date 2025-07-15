@@ -1,7 +1,5 @@
 import { OnboardingStepProps } from '../types'
-import { useEffect, useState } from 'react'
-
-interface PaymentStepProps extends OnboardingStepProps {}
+import { useEffect } from 'react'
 
 const subscriptionTiers = [
   {
@@ -57,14 +55,7 @@ export default function PaymentStep({
   setFormData, 
   onNext, 
   onBack 
-}: PaymentStepProps) {
-  const [paymentMethod, setPaymentMethod] = useState('card')
-  const [cardDetails, setCardDetails] = useState({
-    number: '',
-    expiry: '',
-    cvc: '',
-    name: ''
-  })
+}: OnboardingStepProps) {
   
   // Load data from localStorage on mount
   useEffect(() => {
@@ -79,8 +70,7 @@ export default function PaymentStep({
     }
   }, [setFormData])
 
-  const handleTierSelect = (tierId: string) => {
-    const updatedData = { ...formData, subscriptionTier: tierId }
+  const handleTierSelection = (tierId: string) => {
     setFormData(prev => ({ ...prev, subscriptionTier: tierId }))
     
     // Save payment info to localStorage
@@ -88,31 +78,6 @@ export default function PaymentStep({
       subscriptionTier: tierId
     }
     localStorage.setItem('ghostsync-onboarding-payment', JSON.stringify(paymentData))
-  }
-
-  const selectedTier = subscriptionTiers.find(tier => tier.id === formData.subscriptionTier)
-
-  const formatCardNumber = (value: string) => {
-    const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
-    const matches = v.match(/\d{4,16}/g)
-    const match = matches && matches[0] || ''
-    const parts = []
-    for (let i = 0, len = match.length; i < len; i += 4) {
-      parts.push(match.substring(i, i + 4))
-    }
-    if (parts.length) {
-      return parts.join(' ')
-    } else {
-      return v
-    }
-  }
-
-  const formatExpiry = (value: string) => {
-    const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
-    if (v.length >= 2) {
-      return v.substring(0, 2) + '/' + v.substring(2, 4)
-    }
-    return v
   }
 
   return (
@@ -130,7 +95,7 @@ export default function PaymentStep({
             <button
               key={tier.id}
               type="button"
-              onClick={() => handleTierSelect(tier.id)}
+              onClick={() => handleTierSelection(tier.id)}
               className={`w-full p-4 rounded-lg border text-left transition-all relative ${
                 formData.subscriptionTier === tier.id 
                   ? 'border-gray-900 bg-gray-50' 

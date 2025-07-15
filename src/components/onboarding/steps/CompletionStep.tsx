@@ -223,7 +223,7 @@ export default function CompletionStep({
 
           {/* Next Steps */}
           <div className="bg-gray-50 rounded-lg p-4">
-            <h3 className="font-medium text-gray-900 mb-4">What's Next?</h3>
+            <h3 className="font-medium text-gray-900 mb-4">What&apos;s Next?</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-3">
                 <div className="w-6 h-6 bg-gray-900 text-white rounded-full flex items-center justify-center text-xs font-medium">1</div>

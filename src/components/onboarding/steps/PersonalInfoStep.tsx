@@ -1,8 +1,6 @@
 import { OnboardingStepProps, AuthorPersona, ProjectType } from '../types'
 import { useEffect } from 'react'
 
-interface PersonalInfoStepProps extends OnboardingStepProps {}
-
 const authorPersonas: AuthorPersona[] = [
   { id: 'first-time-author', label: 'First-Time Author', description: 'New to book writing' },
   { id: 'experienced-author', label: 'Experienced Author', description: 'Previously published books' },
@@ -26,7 +24,7 @@ export default function PersonalInfoStep({
   setFormData, 
   onNext, 
   onBack 
-}: PersonalInfoStepProps) {
+}: OnboardingStepProps) {
   
   // Load data from localStorage on mount
   useEffect(() => {
@@ -71,7 +69,7 @@ export default function PersonalInfoStep({
           {/* Personal Information */}
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">What's your first name?</label>
+              <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your first name?</label>
               <input
                 type="text"
                 value={formData.name}
@@ -95,7 +93,7 @@ export default function PersonalInfoStep({
 
           {/* Author Background */}
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">What's your author background?</label>
+            <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your author background?</label>
             <div className="relative">
               <select
                 value={formData.persona}

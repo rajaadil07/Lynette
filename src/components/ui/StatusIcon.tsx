@@ -3,11 +3,10 @@ import { ReactNode } from 'react';
 interface StatusIconProps {
   type: 'success' | 'error' | 'warning' | 'info' | 'email';
   size?: 'sm' | 'md' | 'lg';
-  animated?: boolean;
   children?: ReactNode;
 }
 
-export default function StatusIcon({ type, size = 'md', animated = false, children }: StatusIconProps) {
+export default function StatusIcon({ type, size = 'md', children }: StatusIconProps) {
   const sizeClasses = {
     sm: 'w-12 h-12',
     md: 'w-16 h-16', 

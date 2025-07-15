@@ -1,3 +1,6 @@
+import React from 'react';
+import Image from 'next/image';
+
 export default function SocialLoginButtons() {
   return (
     <div className="space-y-2.5">
@@ -12,7 +15,7 @@ export default function SocialLoginButtons() {
       </button>
 
       <button className="w-full flex items-center justify-center px-4 py-2.5 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow group">
-        <img src="/microsoft.png" alt="Microsoft" className="w-4 h-4 mr-2.5" />
+        <Image src="/microsoft.png" alt="Microsoft" width={16} height={16} className="mr-2.5" />
         <span className="text-gray-700 font-medium text-sm">Continue with Microsoft</span>
       </button>
     </div>

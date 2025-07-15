@@ -35,14 +35,14 @@ export default function HowItWorks() {
               not days
             </span>
           </h2>
-          <p className="mt-6 text-lg text-[#F8F9FA]/60 max-w-2xl mx-auto font-inter">
-            From signup to your first project, we've eliminated every friction point.
+          <p className="text-lg text-[#F8F9FA]/60 max-w-2xl mx-auto font-inter">
+            From signup to your first project, we&apos;ve eliminated every friction point.
           </p>
         </div>
 
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div key={step.number} className="relative">
               {/* Step content */}
               <div className="text-center lg:text-left">

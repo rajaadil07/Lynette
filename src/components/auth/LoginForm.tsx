@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface LoginFormProps {
   onSubmit: (formData: FormData) => void;
@@ -67,7 +66,7 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
 
         {/* Sign Up Link */}
         <p className="text-center text-sm text-[#F8F9FA]/60 mb-6 font-inter">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href="/signup" className="text-[#5D9CEC] hover:text-[#4D8CDB] font-medium transition-colors duration-200">
             Create one
           </Link>

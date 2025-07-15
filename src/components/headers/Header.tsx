@@ -1,7 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 interface HeaderProps {
@@ -39,9 +40,11 @@ export default function Header({ user }: HeaderProps) {
           <div className="flex items-center">
             <Link href="/dashboard" className="flex items-center space-x-3">
               <div className="w-8 h-8">
-                <img 
+                <Image 
                   src="/2.svg" 
                   alt="GhostSync" 
+                  width={32}
+                  height={32}
                   className="w-full h-full"
                 />
               </div>

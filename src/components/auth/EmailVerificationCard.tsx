@@ -13,14 +13,14 @@ export default function EmailVerificationCard({ email, onResendEmail }: EmailVer
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-8 py-6">
       <div className="w-full max-w-sm">
         {/* Enhanced Email Icon with Animation */}
-        <StatusIcon type="email" size="lg" animated />
+        <StatusIcon type="email" size="lg" />
 
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-light text-gray-900 mb-2 tracking-tight">Check your email</h1>
           <div className="space-y-3">
             <p className="text-gray-600 text-sm font-light leading-relaxed">
-              We've sent you a verification link to complete your registration.
+              We&apos;ve sent you a verification link to complete your registration.
             </p>
             {email && (
               <p className="text-gray-500 text-sm font-medium bg-gray-50 px-4 py-2 rounded-lg border">
@@ -28,7 +28,7 @@ export default function EmailVerificationCard({ email, onResendEmail }: EmailVer
               </p>
             )}
             <p className="text-gray-400 text-xs font-light">
-              Don't see the email? Check your spam folder or try again.
+              Don&apos;t see the email? Check your spam folder or try again.
             </p>
           </div>
         </div>
