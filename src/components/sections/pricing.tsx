@@ -10,53 +10,62 @@ interface PricingPlan {
   annualPrice: number
   features: string[]
   popular?: boolean
+  seats?: string
 }
 
 const plans: PricingPlan[] = [
   {
-    name: 'Starter',
-    description: 'Perfect for solo ghostwriters getting started',
-    monthlyPrice: 0,
-    annualPrice: 0,
+    name: 'Freelancer/Contractor',
+    description: 'Perfect for solo ghostwriters and freelancers',
+    monthlyPrice: 50,
+    annualPrice: 42,
+    seats: '1 seat',
     features: [
-      '2 active projects',
-      'Client dashboard',
-      'Basic templates',
-      'Email support',
-      '5GB storage'
-    ]
-  },
-  {
-    name: 'Professional',
-    description: 'Everything you need to scale your business',
-    monthlyPrice: 29,
-    annualPrice: 24,
-    popular: true,
-    features: [
+      'Free trial: 1 client dashboard',
       'Unlimited projects',
-      'Premium templates',
-      'Priority support',
-      'Client portal',
-      '100GB storage',
-      'Custom branding',
-      'Payment processing',
-      'Advanced analytics'
+      'Client portal access',
+      'Document collaboration',
+      'Project timeline tracking',
+      'Milestone-based invoicing',
+      'Email support',
+      '50GB storage'
     ]
   },
   {
-    name: 'Team',
-    description: 'For agencies and collaborative studios',
-    monthlyPrice: 99,
-    annualPrice: 79,
+    name: 'Ghostwriting Firms',
+    description: 'Ideal for mid-level firms and startups',
+    monthlyPrice: 299,
+    annualPrice: 249,
+    popular: true,
+    seats: '5 seats',
     features: [
-      'Everything in Professional',
-      'Unlimited team members',
-      '24/7 phone support',
-      'White-label options',
+      'Free trial: 1 client dashboard',
+      'Everything in Freelancer',
+      'Team collaboration tools',
+      'Advanced analytics',
+      'Custom branding',
+      'Priority support',
       'API access',
-      '1TB storage',
+      '500GB storage',
+      'Client management system'
+    ]
+  },
+  {
+    name: 'Publishing Companies',
+    description: 'For publishers contracting ghostwriters',
+    monthlyPrice: 1000,
+    annualPrice: 833,
+    seats: '10 seats',
+    features: [
+      'Free trial: 1 client dashboard',
+      'Everything in Firms',
+      'Contractor management',
+      'White-label options',
+      '24/7 phone support',
       'Custom integrations',
-      'Dedicated account manager'
+      'Dedicated account manager',
+      'Unlimited storage',
+      'Enterprise security'
     ]
   }
 ]
@@ -76,7 +85,7 @@ export default function Pricing() {
             </span>
           </h2>
           <p className="mt-6 text-lg text-[#F8F9FA]/60 max-w-2xl mx-auto font-inter">
-            Start free, upgrade when you&apos;re ready. No hidden fees, no surprises.
+            All plans include a free trial with one client dashboard. No credit card required.
           </p>
         </div>
 
@@ -102,7 +111,7 @@ export default function Pricing() {
               }`}
             >
               Annual
-              <span className="ml-1 text-xs opacity-80">Save 20%</span>
+              <span className="ml-1 text-xs opacity-80">Save ~17%</span>
             </button>
           </div>
         </div>
@@ -132,9 +141,14 @@ export default function Pricing() {
                 <h3 className="text-2xl font-inter font-normal text-[#F8F9FA] mb-2">
                   {plan.name}
                 </h3>
-                <p className="text-sm text-[#F8F9FA]/50 font-inter">
+                <p className="text-sm text-[#F8F9FA]/50 font-inter mb-2">
                   {plan.description}
                 </p>
+                {plan.seats && (
+                  <p className="text-sm text-[#5D9CEC] font-inter font-medium">
+                    {plan.seats}
+                  </p>
+                )}
               </div>
 
               {/* Price */}
@@ -143,11 +157,9 @@ export default function Pricing() {
                   <span className="text-5xl font-inter font-light text-[#F8F9FA]">
                     ${billing === 'annual' ? plan.annualPrice : plan.monthlyPrice}
                   </span>
-                  {plan.monthlyPrice !== 0 && (
-                    <span className="ml-2 text-[#F8F9FA]/50 font-inter">/month</span>
-                  )}
+                  <span className="ml-2 text-[#F8F9FA]/50 font-inter">/month</span>
                 </div>
-                {billing === 'annual' && plan.monthlyPrice !== 0 && (
+                {billing === 'annual' && (
                   <p className="mt-1 text-sm text-[#FBC02D] font-inter">
                     ${(plan.monthlyPrice - plan.annualPrice) * 12} saved annually
                   </p>
@@ -169,12 +181,11 @@ export default function Pricing() {
                 className={`w-full py-3 rounded-lg font-inter font-medium text-sm transition-all duration-200 ${
                   plan.popular
                     ? 'bg-[#5D9CEC] text-white hover:bg-[#4D8CDB]'
-                    : plan.monthlyPrice === 0
-                    ? 'bg-[#F8F9FA]/10 text-[#F8F9FA] hover:bg-[#F8F9FA]/20 border border-[#F8F9FA]/20'
                     : 'bg-transparent text-[#F8F9FA] hover:bg-[#F8F9FA]/10 border border-[#F8F9FA]/20'
                 }`}
+                onClick={() => window.location.href = '/waitlist'}
               >
-                {plan.monthlyPrice === 0 ? 'Start free' : 'Get started'}
+                Join waitlist
               </button>
             </div>
           ))}

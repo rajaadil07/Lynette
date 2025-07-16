@@ -36,9 +36,9 @@ export default function PublicHeader() {
                 Login
               </Button>
             </Link>
-            <Link href="/signup">
+            <Link href="/waitlist">
               <Button variant="auth-primary">
-                Sign Up
+                Join Waitlist
               </Button>
             </Link>
           </div>

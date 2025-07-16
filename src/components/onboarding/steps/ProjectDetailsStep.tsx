@@ -62,170 +62,170 @@ export default function ProjectDetailsStep({
                      formData.currentStage && formData.previousExperience && formData.communicationStyle
 
   return (
-    <div className="min-h-screen bg-white py-8 px-6">
-      <div className="w-full max-w-lg mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto px-6 py-12">
+      <div className="space-y-8">
         {/* Header */}
-        <div className="space-y-2 text-center">
-          <h1 className="text-2xl font-medium text-gray-900">Project Details</h1>
-          <p className="text-gray-600">Tell us about your book project</p>
+        <div className="text-center space-y-3">
+          <h1 className="text-3xl font-inter font-semibold text-[#F8F9FA]">
+            Project Details
+          </h1>
+          <p className="text-lg text-[#F8F9FA]/60">
+            Tell us about your book project
+          </p>
         </div>
 
         {/* Form */}
-        <div className="space-y-5">
-          {/* Project Title */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your project title?</label>
-            <input
-              type="text"
-              value={formData.projectTitle}
-              onChange={(e) => handleInputChange('projectTitle', e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-              placeholder=""
-            />
-          </div>
-
-          {/* Estimated Length */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">Estimated word count</label>
-            <div className="relative">
-              <select
-                value={formData.estimatedLength}
-                onChange={(e) => handleInputChange('estimatedLength', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent appearance-none bg-white"
-              >
-                <option value="">Select an option</option>
-                <option value="under-50k">Under 50,000 words</option>
-                <option value="50k-80k">50,000 - 80,000 words</option>
-                <option value="80k-120k">80,000 - 120,000 words</option>
-                <option value="over-120k">Over 120,000 words</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+        <div className="bg-[#1B1B1F] border border-white/10 rounded-lg p-8 space-y-8">
+          {/* Basic Project Info */}
+          <div className="space-y-6">
+            <h2 className="text-lg font-inter font-medium text-[#F8F9FA]">Basic Information</h2>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-[#F8F9FA] mb-2">
+                  Project title
+                </label>
+                <input
+                  type="text"
+                  value={formData.projectTitle}
+                  onChange={(e) => handleInputChange('projectTitle', e.target.value)}
+                  className="w-full px-4 py-3 border border-white/10 rounded-lg bg-[#1B1B1F] text-[#F8F9FA] focus:outline-none focus:ring-2 focus:ring-[#5D9CEC] focus:border-transparent transition-colors"
+                  placeholder="What's the working title of your book?"
+                />
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-[#F8F9FA] mb-2">
+                    Estimated length
+                  </label>
+                  <select
+                    value={formData.estimatedLength}
+                    onChange={(e) => handleInputChange('estimatedLength', e.target.value)}
+                    className="w-full px-4 py-3 border border-white/10 rounded-lg bg-[#1B1B1F] text-[#F8F9FA] focus:outline-none focus:ring-2 focus:ring-[#5D9CEC] focus:border-transparent transition-colors"
+                  >
+                    <option value="">Select length</option>
+                    <option value="40000-60000">40,000-60,000 words</option>
+                    <option value="60000-80000">60,000-80,000 words</option>
+                    <option value="80000-100000">80,000-100,000 words</option>
+                    <option value="100000+">100,000+ words</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-[#F8F9FA] mb-2">
+                    Target audience
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.targetAudience}
+                    onChange={(e) => handleInputChange('targetAudience', e.target.value)}
+                    className="w-full px-4 py-3 border border-white/10 rounded-lg bg-[#1B1B1F] text-[#F8F9FA] focus:outline-none focus:ring-2 focus:ring-[#5D9CEC] focus:border-transparent transition-colors"
+                    placeholder="Who is this book for?"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Target Audience */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">Who is your target audience?</label>
-            <textarea
-              value={formData.targetAudience}
-              onChange={(e) => handleInputChange('targetAudience', e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent resize-none"
-              rows={2}
-              placeholder=""
-            />
           </div>
 
           {/* Current Stage */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your current manuscript stage?</label>
-            <div className="relative">
-              <select
-                value={formData.currentStage}
-                onChange={(e) => handleInputChange('currentStage', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent appearance-none bg-white"
-              >
-                <option value="">Select an option</option>
-                {manuscriptStages.map((stage) => (
-                  <option key={stage.id} value={stage.id}>{stage.label}</option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+          <div className="space-y-6">
+            <h2 className="text-lg font-inter font-medium text-[#F8F9FA]">Current Stage</h2>
+            <div className="grid grid-cols-2 gap-3">
+              {manuscriptStages.map((stage) => (
+                <button
+                  key={stage.id}
+                  type="button"
+                  onClick={() => handleInputChange('currentStage', stage.id)}
+                  className={`p-4 rounded-lg border text-left transition-colors ${
+                    formData.currentStage === stage.id
+                      ? 'border-[#5D9CEC] bg-[#5D9CEC]/10'
+                      : 'border-white/10 hover:border-[#5D9CEC]/50 hover:bg-[#5D9CEC]/5'
+                  }`}
+                >
+                  <div className="font-medium text-[#F8F9FA] text-sm mb-1">
+                    {stage.label}
+                  </div>
+                  <div className="text-xs text-[#F8F9FA]/60">
+                    {stage.description}
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Writing Experience */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">What&apos;s your writing experience level?</label>
-            <div className="relative">
-              <select
-                value={formData.previousExperience}
-                onChange={(e) => handleInputChange('previousExperience', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent appearance-none bg-white"
-              >
-                <option value="">Select an option</option>
-                {experienceLevels.map((level) => (
-                  <option key={level.id} value={level.id}>{level.label}</option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+          {/* Experience Level */}
+          <div className="space-y-6">
+            <h2 className="text-lg font-inter font-medium text-[#F8F9FA]">Writing Experience</h2>
+            <div className="grid grid-cols-3 gap-3">
+              {experienceLevels.map((level) => (
+                <button
+                  key={level.id}
+                  type="button"
+                  onClick={() => handleInputChange('previousExperience', level.id)}
+                  className={`p-4 rounded-lg border text-left transition-colors ${
+                    formData.previousExperience === level.id
+                      ? 'border-[#5D9CEC] bg-[#5D9CEC]/10'
+                      : 'border-white/10 hover:border-[#5D9CEC]/50 hover:bg-[#5D9CEC]/5'
+                  }`}
+                >
+                  <div className="font-medium text-[#F8F9FA] text-sm mb-1">
+                    {level.label}
+                  </div>
+                  <div className="text-xs text-[#F8F9FA]/60">
+                    {level.description}
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Communication Style */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">How would you like to collaborate?</label>
-            <div className="relative">
-              <select
-                value={formData.communicationStyle}
-                onChange={(e) => handleInputChange('communicationStyle', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent appearance-none bg-white"
-              >
-                <option value="">Select an option</option>
-                {communicationStyles.map((style) => (
-                  <option key={style.id} value={style.id}>{style.label}</option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+          {/* Communication Preferences */}
+          <div className="space-y-6">
+            <h2 className="text-lg font-inter font-medium text-[#F8F9FA]">Communication Style</h2>
+            <div className="space-y-3">
+              {communicationStyles.map((style) => (
+                <button
+                  key={style.id}
+                  type="button"
+                  onClick={() => handleInputChange('communicationStyle', style.id)}
+                  className={`w-full p-4 rounded-lg border text-left transition-colors ${
+                    formData.communicationStyle === style.id
+                      ? 'border-[#5D9CEC] bg-[#5D9CEC]/10'
+                      : 'border-white/10 hover:border-[#5D9CEC]/50 hover:bg-[#5D9CEC]/5'
+                  }`}
+                >
+                  <div className="font-medium text-[#F8F9FA] text-sm mb-1">
+                    {style.label}
+                  </div>
+                  <div className="text-xs text-[#F8F9FA]/60">
+                    {style.description}
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Feedback Frequency - Optional field, smaller spacing */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">How often would you like updates?</label>
-            <div className="relative">
-              <select
-                value={formData.feedbackFrequency}
-                onChange={(e) => handleInputChange('feedbackFrequency', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent appearance-none bg-white"
-              >
-                <option value="">Select an option</option>
-                <option value="daily">Daily updates</option>
-                <option value="weekly">Weekly check-ins</option>
-                <option value="bi-weekly">Bi-weekly reviews</option>
-                <option value="chapter-by-chapter">After each chapter</option>
-                <option value="milestone">At major milestones</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
+          {/* Navigation */}
+          <div className="flex justify-between pt-6 border-t border-white/10">
+            <button
+              onClick={onBack}
+              className="px-6 py-3 border border-white/10 text-[#F8F9FA]/70 rounded-lg font-medium text-sm hover:border-[#5D9CEC]/50 hover:text-[#F8F9FA] transition-colors"
+            >
+              Back
+            </button>
+            <button
+              onClick={onNext}
+              disabled={!isFormValid}
+              className={`px-6 py-3 rounded-lg font-medium text-sm transition-colors ${
+                isFormValid
+                  ? 'bg-[#5D9CEC] text-white hover:bg-[#4A8BE8]'
+                  : 'bg-white/10 text-[#F8F9FA]/40 cursor-not-allowed'
+              }`}
+            >
+              Continue
+            </button>
           </div>
-        </div>
-
-        {/* Navigation */}
-        <div className="flex justify-between pt-6">
-          <button 
-            onClick={onBack}
-            className="text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            ← Back
-          </button>
-
-          <button
-            onClick={onNext}
-            disabled={!isFormValid}
-            className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            Next
-          </button>
         </div>
       </div>
     </div>

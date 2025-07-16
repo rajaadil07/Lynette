@@ -62,7 +62,7 @@ export default function OrganizationHeader({
             <Link href={baseUrl} className="flex items-center space-x-3">
               <div className="w-8 h-8">
                 <Image 
-                  src="/2.svg" 
+                  src="/logo.png" 
                   alt="GhostSync" 
                   width={32}
                   height={32}

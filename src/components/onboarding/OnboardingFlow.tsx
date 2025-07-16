@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 import { User, FormData } from './types'
 import { ProgressBar } from './components'
@@ -54,7 +55,7 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
   
   const router = useRouter()
 
-  const totalSteps = 5 // Updated to include payment step
+  const totalSteps = 5
 
   // Load all form data from localStorage on mount
   useEffect(() => {
@@ -91,12 +92,14 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
   const nextStep = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -116,7 +119,7 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
       localStorage.removeItem('ghostsync-onboarding-contract')
       localStorage.removeItem('ghostsync-onboarding-payment')
       
-      // Redirect to a static dashboard
+      // Redirect to dashboard
       console.log('✅ Ghostwriting onboarding completed! Redirecting to dashboard')
       router.push('/dashboard')
     } catch (error) {
@@ -174,10 +177,8 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
         return (
           <CompletionStep
             formData={formData}
-            setFormData={setFormData}
-            onNext={nextStep}
-            onBack={prevStep}
             onComplete={completeOnboarding}
+            onBack={prevStep}
             loading={loading}
           />
         )
@@ -195,14 +196,41 @@ export default function OnboardingFlow({ }: OnboardingFlowProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
-      {/* Progress Bar - Only show for first 4 steps */}
-      {currentStep < 5 && (
-        <ProgressBar currentStep={currentStep} totalSteps={4} />
-      )}
+    <div className="min-h-screen bg-[#1B1B1F]">
+      {/* Header */}
+      <header className="bg-[#1B1B1F] border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <Image 
+                src="/icon.png" 
+                alt="GhostSync" 
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
+              <span className="font-inter font-semibold text-[#F8F9FA] text-lg">GhostSync</span>
+            </div>
+            
+            {/* Progress indicator - only show for steps 1-4 */}
+            {currentStep < 5 && (
+              <div className="flex items-center space-x-2 text-sm text-[#F8F9FA]/60">
+                <span>Step {currentStep} of 4</span>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        {/* Progress Bar - Only show for first 4 steps */}
+        {currentStep < 5 && (
+          <ProgressBar currentStep={currentStep} totalSteps={4} />
+        )}
+      </header>
 
-      {/* Current Step Content */}
-      {renderCurrentStep()}
+      {/* Main Content */}
+      <main className="flex-1">
+        {renderCurrentStep()}
+      </main>
     </div>
   )
 } 

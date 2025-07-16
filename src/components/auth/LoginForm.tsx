@@ -66,9 +66,9 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
 
         {/* Sign Up Link */}
         <p className="text-center text-sm text-[#F8F9FA]/60 mb-6 font-inter">
-          Don&apos;t have an account?{' '}
-          <Link href="/signup" className="text-[#5D9CEC] hover:text-[#4D8CDB] font-medium transition-colors duration-200">
-            Create one
+          Want early access?{' '}
+          <Link href="/waitlist" className="text-[#5D9CEC] hover:text-[#4D8CDB] font-medium transition-colors duration-200">
+            Join our waitlist
           </Link>
         </p>
 

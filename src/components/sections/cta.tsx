@@ -52,9 +52,9 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mt-12 flex justify-center mb-20"
           >
-            <Link href="/signup">
+            <Link href="/waitlist">
               <Button className="h-14 px-12 bg-[#5D9CEC] hover:bg-[#4D8CDB] text-white font-inter font-medium text-lg rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
-                Get started free
+                Join waitlist
               </Button>
             </Link>
           </motion.div>

@@ -48,167 +48,162 @@ export default function ContractStep({
   const isFormValid = formData.ndaSigned && formData.contractUploaded
 
   return (
-    <div className="min-h-screen bg-white py-8 px-6">
-      <div className="w-full max-w-lg mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto px-6 py-12">
+      <div className="space-y-8">
         {/* Header */}
-        <div className="space-y-2 text-center">
-          <h1 className="text-2xl font-medium text-gray-900">Legal Documents</h1>
-          <p className="text-gray-600">Secure your project with legal protection</p>
+        <div className="text-center space-y-3">
+          <h1 className="text-3xl font-inter font-semibold text-[#F8F9FA]">
+            Contract & Legal
+          </h1>
+          <p className="text-lg text-[#F8F9FA]/60">
+            Let's handle the legal requirements for your project
+          </p>
         </div>
 
         {/* Form */}
-        <div className="space-y-6">
+        <div className="bg-[#1B1B1F] border border-white/10 rounded-lg p-8 space-y-8">
           {/* NDA Agreement */}
-          <div>
-            <h2 className="text-lg font-medium text-gray-900 mb-4">Non-Disclosure Agreement</h2>
+          <div className="space-y-6">
+            <h2 className="text-lg font-inter font-medium text-[#F8F9FA]">Non-Disclosure Agreement</h2>
             
-            <div className="bg-gray-50 rounded-lg p-4 mb-4">
-              <p className="text-gray-700 text-sm mb-3">
-                This NDA ensures that all project details, manuscript content, and personal information 
-                shared during our collaboration remain strictly confidential.
-              </p>
-              
-              <div className="space-y-2">
-                {[
-                  'Complete manuscript confidentiality',
-                  'Personal information protection', 
-                  'Professional standards compliance',
-                  'Secure data handling protocols'
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <div className="w-4 h-4 bg-gray-400 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="text-sm text-gray-700">{item}</span>
-                  </div>
-                ))}
+            <div className="bg-[#5D9CEC]/5 border border-[#5D9CEC]/20 rounded-lg p-6">
+              <div className="space-y-4">
+                <h3 className="font-medium text-[#F8F9FA]">Confidentiality Protection</h3>
+                <p className="text-sm text-[#F8F9FA]/70 leading-relaxed">
+                  By proceeding, you agree that all information shared during this project, including 
+                  personal stories, business insights, and manuscript content, will be kept strictly 
+                  confidential. Your ghostwriter is legally bound to protect your privacy.
+                </p>
+                
+                <div className="flex items-start space-x-3">
+                  <input
+                    type="checkbox"
+                    id="nda"
+                    checked={formData.ndaSigned}
+                    onChange={handleNDAToggle}
+                    className="mt-1 w-4 h-4 text-[#5D9CEC] bg-[#1B1B1F] border-white/20 rounded focus:ring-[#5D9CEC] focus:ring-2"
+                  />
+                  <label htmlFor="nda" className="text-sm text-[#F8F9FA] cursor-pointer">
+                    I agree to the Non-Disclosure Agreement and confidentiality terms
+                  </label>
+                </div>
               </div>
             </div>
-            
-            <label className={`flex items-start space-x-3 p-4 border-2 rounded-lg cursor-pointer transition-all ${
-              formData.ndaSigned 
-                ? 'border-gray-900 bg-gray-50' 
-                : 'border-gray-300 hover:border-gray-400'
-            }`}>
-              <input
-                type="checkbox"
-                checked={formData.ndaSigned}
-                onChange={handleNDAToggle}
-                className="mt-1 w-5 h-5 text-gray-900 border-gray-300 rounded focus:ring-gray-900"
-              />
-              <div className="flex-1">
-                <div className="font-medium text-gray-900">I agree to the Non-Disclosure Agreement</div>
-                <p className="text-sm text-gray-600 mt-1">
-                  By checking this box, I acknowledge that I have read and agree to be bound by the terms of the NDA.
-                </p>
-              </div>
-            </label>
           </div>
 
           {/* Contract Upload */}
-          <div>
-            <h2 className="text-lg font-medium text-gray-900 mb-4">Project Contract</h2>
+          <div className="space-y-6">
+            <h2 className="text-lg font-inter font-medium text-[#F8F9FA]">Project Contract</h2>
             
-            <div 
-              className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-all cursor-pointer ${
-                dragActive 
-                  ? 'border-gray-900 bg-gray-50' 
-                  : formData.contractUploaded 
-                    ? 'border-gray-900 bg-gray-50'
-                    : 'border-gray-300 hover:border-gray-400'
-              }`}
-              onDragEnter={handleDrag}
-              onDragLeave={handleDrag}
-              onDragOver={handleDrag}
-              onDrop={handleDrop}
-            >
-              <input
-                type="file"
-                accept=".pdf"
-                onChange={(e) => handleFileUpload(e.target.files)}
-                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-              />
-              
-              {formData.contractUploaded ? (
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-gray-900 font-medium">Contract Uploaded Successfully</p>
-                    <p className="text-gray-600 text-sm mt-1">{formData.contractFile?.name}</p>
-                    <p className="text-xs text-gray-500 mt-1">Click to replace file</p>
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto">
-                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {!formData.contractUploaded ? (
+              <div
+                onDragEnter={handleDrag}
+                onDragLeave={handleDrag}
+                onDragOver={handleDrag}
+                onDrop={handleDrop}
+                className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+                  dragActive 
+                    ? 'border-[#5D9CEC] bg-[#5D9CEC]/10' 
+                    : 'border-white/20 hover:border-[#5D9CEC]/50'
+                }`}
+              >
+                <div className="space-y-4">
+                  <div className="w-12 h-12 mx-auto bg-[#5D9CEC]/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-[#5D9CEC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-900 font-medium">Upload Your Contract</p>
-                    <p className="text-gray-600 text-sm mt-1">
-                      Drag and drop your PDF here, or click to browse
+                    <h3 className="font-medium text-[#F8F9FA] mb-2">Upload your contract</h3>
+                    <p className="text-sm text-[#F8F9FA]/60 mb-4">
+                      Drop your PDF contract here, or click to browse
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">PDF files only, max 10MB</p>
+                    <input
+                      type="file"
+                      accept=".pdf"
+                      onChange={(e) => handleFileUpload(e.target.files)}
+                      className="hidden"
+                      id="contract-upload"
+                    />
+                    <label 
+                      htmlFor="contract-upload"
+                      className="inline-flex items-center px-4 py-2 border border-[#5D9CEC] text-[#5D9CEC] rounded-lg hover:bg-[#5D9CEC]/10 transition-colors cursor-pointer"
+                    >
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                      </svg>
+                      Browse Files
+                    </label>
                   </div>
+                  <p className="text-xs text-[#F8F9FA]/50">PDF files only, up to 10MB</p>
                 </div>
-              )}
-            </div>
-
-            {/* Alternative Options */}
-            <div className="mt-4 space-y-3">
-              <p className="text-sm font-medium text-gray-700">Alternative Options:</p>
-              <div className="space-y-2">
-                <button className="w-full flex items-center space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300 transition-all text-left">
-                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-900 text-sm">Email for Digital Signature</div>
-                    <div className="text-xs text-gray-600">Send contract for e-signature</div>
-                  </div>
-                </button>
-                <button className="w-full flex items-center space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300 transition-all text-left">
-                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              </div>
+            ) : (
+              <div className="bg-[#5D9CEC]/10 border border-[#5D9CEC]/30 rounded-lg p-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-10 h-10 bg-[#5D9CEC]/20 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-[#5D9CEC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                   </div>
-                  <div>
-                    <div className="font-medium text-gray-900 text-sm">Use Template</div>
-                    <div className="text-xs text-gray-600">Generate standard contract</div>
+                  <div className="flex-1">
+                    <h3 className="font-medium text-[#F8F9FA]">Contract uploaded</h3>
+                    <p className="text-sm text-[#F8F9FA]/60">
+                      {formData.contractFile?.name || 'contract.pdf'}
+                    </p>
                   </div>
-                </button>
+                  <button
+                    onClick={() => setFormData(prev => ({ ...prev, contractUploaded: false, contractFile: undefined }))}
+                    className="text-[#F8F9FA]/40 hover:text-[#F8F9FA] transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Legal Notice */}
+          <div className="bg-[#FBC02D]/5 border border-[#FBC02D]/30 rounded-lg p-6">
+            <div className="flex items-start space-x-3">
+              <div className="w-6 h-6 bg-[#FBC02D]/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-[#FBC02D]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-medium text-[#F8F9FA] mb-1">Legal Protection</h3>
+                <p className="text-sm text-[#F8F9FA]/70 leading-relaxed">
+                  These agreements ensure your intellectual property is protected throughout the 
+                  ghostwriting process. All documents are securely stored and handled in compliance 
+                  with industry standards.
+                </p>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between pt-6">
-          <button 
-            onClick={onBack}
-            className="text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            ← Back
-          </button>
-
-          <button
-            onClick={onNext}
-            disabled={!isFormValid}
-            className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            Next
-          </button>
+          {/* Navigation */}
+          <div className="flex justify-between pt-6 border-t border-white/10">
+            <button
+              onClick={onBack}
+              className="px-6 py-3 border border-white/10 text-[#F8F9FA]/70 rounded-lg font-medium text-sm hover:border-[#5D9CEC]/50 hover:text-[#F8F9FA] transition-colors"
+            >
+              Back
+            </button>
+            <button
+              onClick={onNext}
+              disabled={!isFormValid}
+              className={`px-6 py-3 rounded-lg font-medium text-sm transition-colors ${
+                isFormValid
+                  ? 'bg-[#5D9CEC] text-white hover:bg-[#4A8BE8]'
+                  : 'bg-white/10 text-[#F8F9FA]/40 cursor-not-allowed'
+              }`}
+            >
+              Continue
+            </button>
+          </div>
         </div>
       </div>
     </div>

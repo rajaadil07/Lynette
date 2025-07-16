@@ -54,9 +54,9 @@ export default function HeroSection() {
           <div className={`mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 transition-opacity duration-700 delay-300 ${
             mounted ? 'opacity-100' : 'opacity-0'
           }`}>
-            <Link href="/signup">
+            <Link href="/waitlist">
               <Button className="h-12 px-8 bg-[#5D9CEC] hover:bg-[#4D8CDB] text-white font-inter font-medium rounded-lg transition-colors duration-200">
-                Get started free
+                Join waitlist
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
