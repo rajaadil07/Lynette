@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import { FormData } from '../types'
 
 interface CompletionStepProps {
-  formData: any
+  formData: FormData
   onComplete: () => void
   onBack: () => void
   loading?: boolean
@@ -73,7 +74,7 @@ export default function CompletionStep({
               Setting up your project
             </h1>
             <p className="text-[#F8F9FA]/60">
-              We're preparing everything for your ghostwriting project...
+              We&apos;re preparing everything for your ghostwriting project...
             </p>
           </div>
           
@@ -104,10 +105,10 @@ export default function CompletionStep({
             </div>
             <div className="space-y-3">
               <h1 className="text-3xl font-inter font-semibold text-[#F8F9FA]">
-                You're all set, {formData.name?.split(' ')[0] || 'Writer'}!
+                You&apos;re all set, {formData.name?.split(' ')[0] || 'Writer'}!
               </h1>
               <p className="text-lg text-[#F8F9FA]/60">
-                Your project "{formData.projectTitle || 'Untitled Project'}" is ready
+                Your project &quot;{formData.projectTitle || 'Untitled Project'}&quot; is ready
               </p>
             </div>
           </div>
@@ -132,7 +133,7 @@ export default function CompletionStep({
 
           {/* Next Steps */}
           <div className="bg-[#1B1B1F] border border-white/10 rounded-lg p-8">
-            <h2 className="text-lg font-inter font-medium text-[#F8F9FA] mb-6">What's Next?</h2>
+            <h2 className="text-lg font-inter font-medium text-[#F8F9FA] mb-6">What&apos;s Next?</h2>
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 bg-[#5D9CEC] text-white rounded-full flex items-center justify-center text-xs font-medium">1</div>

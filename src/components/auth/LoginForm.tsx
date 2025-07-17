@@ -1,12 +1,31 @@
 'use client'
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface LoginFormProps {
-  onSubmit: (formData: FormData) => void;
+  onSubmit: (formData: FormData) => Promise<{ error?: string }>;
 }
 
 export default function LoginForm({ onSubmit }: LoginFormProps) {
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleSubmit(formData: FormData) {
+    setError(null);
+    setIsLoading(true);
+    
+    try {
+      const result = await onSubmit(formData);
+      if (result?.error) {
+        setError(result.error);
+      }
+    } catch {
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  }
   return (
     <div className="min-h-screen bg-[#1B1B1F] flex flex-col items-center justify-start px-6 pt-40 md:pt-48 lg:pt-52 pb-12 relative overflow-hidden">
       {/* Background effects */}
@@ -26,8 +45,15 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
           </p>
         </div>
 
+        {/* Error Message */}
+        {error && (
+          <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+            <p className="text-sm text-red-400 font-inter">{error}</p>
+          </div>
+        )}
+
         {/* Login Form */}
-        <form action={onSubmit} className="space-y-5 mb-6">
+        <form action={handleSubmit} className="space-y-5 mb-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-[#F8F9FA]/80 mb-2 font-inter">
               Email address
@@ -58,9 +84,10 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
           
           <button 
             type="submit"
-            className="w-full bg-[#5D9CEC] hover:bg-[#4D8CDB] text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 text-base shadow-lg hover:shadow-xl font-inter"
+            disabled={isLoading}
+            className="w-full bg-[#5D9CEC] hover:bg-[#4D8CDB] disabled:bg-[#5D9CEC]/50 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 text-base shadow-lg hover:shadow-xl font-inter disabled:cursor-not-allowed"
           >
-            Sign in
+            {isLoading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 
@@ -84,7 +111,10 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
 
         {/* Social Login Buttons */}
         <div className="space-y-3 mb-8">
-          <button className="w-full flex items-center justify-center px-4 py-3 bg-[#F8F9FA]/5 border border-[#F8F9FA]/10 rounded-lg hover:bg-[#F8F9FA]/10 hover:border-[#F8F9FA]/20 transition-all duration-200 group">
+          <button 
+            type="button"
+            onClick={() => setError('Social login is not available yet.')}
+            className="w-full flex items-center justify-center px-4 py-3 bg-[#F8F9FA]/5 border border-[#F8F9FA]/10 rounded-lg hover:bg-[#F8F9FA]/10 hover:border-[#F8F9FA]/20 transition-all duration-200 group">
             <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
               <path fill="#F8F9FA" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="#F8F9FA" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -94,7 +124,10 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
             <span className="text-[#F8F9FA]/80 font-medium text-sm font-inter">Continue with Google</span>
           </button>
 
-          <button className="w-full flex items-center justify-center px-4 py-3 bg-[#F8F9FA]/5 border border-[#F8F9FA]/10 rounded-lg hover:bg-[#F8F9FA]/10 hover:border-[#F8F9FA]/20 transition-all duration-200 group">
+          <button 
+            type="button"
+            onClick={() => setError('Social login is not available yet.')}
+            className="w-full flex items-center justify-center px-4 py-3 bg-[#F8F9FA]/5 border border-[#F8F9FA]/10 rounded-lg hover:bg-[#F8F9FA]/10 hover:border-[#F8F9FA]/20 transition-all duration-200 group">
             <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="none">
               <path d="M11.5 2v9.5H2V2h9.5Zm0 20v-9.5H2V22h9.5ZM22 2v9.5h-9.5V2H22Zm0 20v-9.5h-9.5V22H22Z" fill="#F8F9FA"/>
             </svg>

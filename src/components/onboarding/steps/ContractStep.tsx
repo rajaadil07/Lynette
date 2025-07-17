@@ -56,7 +56,7 @@ export default function ContractStep({
             Contract & Legal
           </h1>
           <p className="text-lg text-[#F8F9FA]/60">
-            Let's handle the legal requirements for your project
+            Let&apos;s handle the legal requirements for your project
           </p>
         </div>
 

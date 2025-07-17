@@ -81,7 +81,6 @@ export default function PaymentStep({
   }, [setFormData])
 
   const handlePlanSelect = (planId: string) => {
-    const updatedData = { ...formData, subscriptionTier: planId }
     setFormData(prev => ({ ...prev, subscriptionTier: planId }))
     
     // Save payment data to localStorage

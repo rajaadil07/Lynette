@@ -22,8 +22,7 @@ const projectTypes: ProjectType[] = [
 export default function PersonalInfoStep({ 
   formData, 
   setFormData, 
-  onNext, 
-  onBack 
+  onNext
 }: OnboardingStepProps) {
   
   // Load data from localStorage on mount
@@ -64,7 +63,7 @@ export default function PersonalInfoStep({
             Welcome to GhostSync
           </h1>
           <p className="text-lg text-[#F8F9FA]/60">
-            Let's get to know you and your project
+            Let&apos;s get to know you and your project
           </p>
         </div>
 

@@ -54,10 +54,10 @@ export default function WaitlistPage() {
           </div>
 
           <h1 className="text-3xl font-inter font-semibold text-[#F8F9FA] mb-4">
-            You're on the list!
+            You&apos;re on the list!
           </h1>
           <p className="text-lg text-[#F8F9FA]/60 mb-8">
-            We'll notify you as soon as GhostSync is ready for early access.
+            We&apos;ll notify you as soon as GhostSync is ready for early access.
           </p>
           
           <Link href="/">
