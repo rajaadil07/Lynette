@@ -5,6 +5,7 @@ import type { NextRequest } from 'next/server'
 const publicRoutes = [
   '/',
   '/login',
+  '/signup',
   '/waitlist',
   '/terms',
   '/privacy',
@@ -12,7 +13,9 @@ const publicRoutes = [
   '/contact',
   '/faq',
   '/api/waitlist',
-  '/api/contact'
+  '/api/contact',
+  '/error',
+  '/verify-email'
 ]
 
 // Define protected route patterns
@@ -31,7 +34,7 @@ export function middleware(request: NextRequest) {
 
   // Check if the current path is a public route
   const isPublicRoute = publicRoutes.some(route => 
-    pathname === route || pathname.startsWith(`${route}/`)
+    pathname === route
   )
 
   // Check if the current path matches any protected route pattern
