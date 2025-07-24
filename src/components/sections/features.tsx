@@ -23,7 +23,7 @@ const features = [
   },
   {
     number: '05',
-    title: 'Instant Payments',
+    title: 'Seamless Payments',
     description: 'Streamline billing with milestone-based invoicing and automated payment processing built right in.'
   },
   {
@@ -43,13 +43,13 @@ export default function Features() {
         {/* Header with better SEO structure */}
         <header className="text-center mb-24 lg:mb-32">
           <h2 className="font-inter text-5xl md:text-6xl lg:text-7xl font-light text-[#F8F9FA] leading-[1.1] tracking-tight">
-            Built for the way
+            Where Your Process
             <span className="block font-lora font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#5D9CEC] to-[#FBC02D] mt-3">
-              you actually work
+              Meets Professionalism
             </span>
           </h2>
           <p className="mt-8 text-lg lg:text-xl text-[#F8F9FA]/70 max-w-3xl mx-auto font-inter leading-relaxed">
-            Everything you need to manage client projects professionally, all in one platform.
+            An all-in-one platform that simplifies onboarding and managing client projects. 
           </p>
         </header>
 

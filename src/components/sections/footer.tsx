@@ -5,10 +5,10 @@ import Image from 'next/image'
 
 const footerLinks = {
   Product: [
-    { name: 'Features', href: '#features' },
-    { name: 'How it Works', href: '#how-it-works' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'FAQ', href: '#faq' }
+    { name: 'Features', href: '/#features' },
+    { name: 'How it Works', href: '/#how-it-works' },
+    { name: 'Pricing', href: '/#pricing' },
+    { name: 'FAQ', href: '/#faq' }
   ],
   Company: [
     { name: 'About', href: '/about' },
@@ -41,8 +41,7 @@ export default function Footer() {
                 />
               </Link>
               <p className="mt-4 text-base text-[#F8F9FA]/60 max-w-md font-inter leading-relaxed">
-                The modern platform for professional ghostwriters. Manage projects, 
-                collaborate with clients, and grow your business.
+                Onboarding software made by ghostwriters specifically for ghostwriters. Manage projects, collaborate with clients, and enhance your business.
               </p>
               
               {/* Social links */}

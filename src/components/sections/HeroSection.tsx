@@ -35,10 +35,10 @@ export default function HeroSection() {
           <h1 className={`font-inter text-5xl md:text-6xl lg:text-7xl font-normal text-[#F8F9FA] leading-[1.1] transition-opacity duration-700 delay-100 ${
             mounted ? 'opacity-100' : 'opacity-0'
           }`}>
-            The professional platform
+            The Professional Platform for
             <br />
             <span className="font-lora italic text-[#5D9CEC]">
-              for ghostwriters
+              Ghostwriters
             </span>
           </h1>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
             mounted ? 'opacity-100' : 'opacity-0'
           }`}>
             Transform scattered client communications into streamlined workflows. 
-            Built for modern ghostwriters who value professionalism.
+            The only software built by ghostwriters for ghostwriters.
           </p>
 
           {/* CTA section */}

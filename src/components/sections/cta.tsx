@@ -25,7 +25,7 @@ export default function CTASection() {
             transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="text-5xl md:text-6xl xl:text-7xl font-inter font-light leading-[0.95] tracking-tight text-[#F8F9FA] mb-8"
           >
-            Ready to transform
+            Ready to sync
             <br />
             <span className="font-lora italic text-[#5D9CEC]">
               your business?
@@ -40,7 +40,7 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-[#F8F9FA]/60 leading-relaxed font-inter"
           >
-            Join hundreds of ghostwriters who&apos;ve connected with their clients, 
+            Join the hundreds of ghostwriters who&apos;ve connected with their clients, 
             eliminated confusion, and built thriving businesses through seamless collaboration.
           </motion.p>
 

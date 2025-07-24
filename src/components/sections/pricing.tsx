@@ -15,7 +15,7 @@ interface PricingPlan {
 
 const plans: PricingPlan[] = [
   {
-    name: 'Freelancer/Contractor',
+    name: 'Solo Ghost',
     description: 'Perfect for solo ghostwriters and freelancers',
     monthlyPrice: 50,
     annualPrice: 42,
@@ -32,8 +32,8 @@ const plans: PricingPlan[] = [
     ]
   },
   {
-    name: 'Ghostwriting Firms',
-    description: 'Ideal for mid-level firms and startups',
+    name: 'Ghostwriting Agencies',
+    description: 'Ideal for startups, boutique, and mid-level agencies',
     monthlyPrice: 299,
     annualPrice: 249,
     popular: true,
@@ -51,7 +51,7 @@ const plans: PricingPlan[] = [
     ]
   },
   {
-    name: 'Publishing Companies',
+    name: 'Publishers',
     description: 'For publishers contracting ghostwriters',
     monthlyPrice: 1000,
     annualPrice: 833,

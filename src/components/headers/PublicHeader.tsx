@@ -20,13 +20,14 @@ export default function PublicHeader() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image 
-              src="/logo.png" 
+              src="/icon.png" 
               alt="GhostSync" 
-              width={420} 
-              height={140}
-              className="h-24 md:h-32 lg:h-36 w-auto"
+              width={48} 
+              height={48}
+              className="w-12 h-12 mr-3"
               priority
             />
+            <span className="font-inter text-2xl font-semibold text-[#F8F9FA] tracking-tight">GhostSync</span>
           </Link>
 
           {/* Clean Modern Auth Buttons */}

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 const subscriptionTiers = [
   {
     id: 'freelancer',
-    name: 'Freelancer/Contractor',
+    name: 'Solo Ghost',
     price: 50,
     description: 'Perfect for solo ghostwriters and freelancers',
     features: [
@@ -22,9 +22,9 @@ const subscriptionTiers = [
   },
   {
     id: 'studio',
-    name: 'Ghostwriting Firms',
+    name: 'Ghostwriting Agencies',
     price: 299,
-    description: 'Ideal for mid-level firms and startups',
+    description: 'Ideal for startups, boutique, and mid-level agencies',
     features: [
       'Free trial: 1 client dashboard',
       'Everything in Freelancer',
@@ -41,7 +41,7 @@ const subscriptionTiers = [
   },
   {
     id: 'publisher',
-    name: 'Publishing Companies',
+    name: 'Publishers',
     price: 1000,
     description: 'For publishers contracting ghostwriters',
     features: [
