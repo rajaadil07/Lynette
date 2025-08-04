@@ -38,17 +38,16 @@ export default function Header({ user }: HeaderProps) {
         <div className="flex justify-between items-center h-16">
           {/* Logo and Brand */}
           <div className="flex items-center">
-            <Link href="/dashboard" className="flex items-center space-x-3">
-              <div className="w-8 h-8">
+            <Link href="/dashboard" className="flex items-center">
+              <div className="w-20 h-20 md:w-24 md:h-24">
                 <Image 
                   src="/logo.png" 
                   alt="GhostSync" 
-                  width={32}
-                  height={32}
+                  width={96}
+                  height={96}
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-xl font-medium text-gray-900">GhostSync</span>
             </Link>
           </div>
 

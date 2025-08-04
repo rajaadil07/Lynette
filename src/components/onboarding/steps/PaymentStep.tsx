@@ -6,16 +6,17 @@ const subscriptionTiers = [
     id: 'freelancer',
     name: 'Solo Ghost',
     price: 50,
-    description: 'Perfect for solo ghostwriters and freelancers',
+    description: 'Perfect for independent ghostwriters & freelancers',
     features: [
       'Free trial: 1 client dashboard',
-      'Unlimited projects',
-      'Client portal access',
-      'Document collaboration',
-      'Project timeline tracking',
-      'Milestone-based invoicing',
+      'Unlimited writing projects',
+      'Client portal for real-time updates & approvals',
+      'Live document co-editing',
+      'Visual project timeline & task board',
+      'Automated milestone-based invoicing',
+      'Secure client messaging system',
       'Email support',
-      '50GB storage'
+      '50GB file & media storage'
     ],
     seats: '1 seat',
     popular: false
@@ -24,17 +25,15 @@ const subscriptionTiers = [
     id: 'studio',
     name: 'Ghostwriting Agencies',
     price: 299,
-    description: 'Ideal for startups, boutique, and mid-level agencies',
+    description: 'Built for boutique to mid-sized ghostwriting agencies',
     features: [
-      'Free trial: 1 client dashboard',
-      'Everything in Freelancer',
-      'Team collaboration tools',
-      'Advanced analytics',
-      'Custom branding',
-      'Priority support',
-      'API access',
-      '500GB storage',
-      'Client management system'
+      'Everything in Solo Ghost, plus:',
+      'Team collaboration: Assign roles, tasks, and permissions',
+      'Multi-client dashboard & organization folders',
+      'Internal team notes (invisible to client)',
+      'Project templates & reusable outlines',
+      'Priority email & chat support',
+      '500GB storage'
     ],
     seats: '5 seats',
     popular: true
@@ -43,17 +42,14 @@ const subscriptionTiers = [
     id: 'publisher',
     name: 'Publishers',
     price: 1000,
-    description: 'For publishers contracting ghostwriters',
+    description: 'For large publishers or platforms working with multiple ghostwriters',
     features: [
-      'Free trial: 1 client dashboard',
-      'Everything in Firms',
-      'Contractor management',
-      'White-label options',
-      '24/7 phone support',
-      'Custom integrations',
-      'Dedicated account manager',
-      'Unlimited storage',
-      'Enterprise security'
+      'Everything in Ghostwriting Agencies, plus:',
+      'Contractor database with assignment & workload tracking',
+      'White-label options for client-facing portal & emails',
+      '24/7 phone & chat support',
+      'Custom editorial workflows (e.g., approval chains)',
+      'Unlimited document storage'
     ],
     seats: '10 seats',
     popular: false
