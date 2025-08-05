@@ -22,9 +22,9 @@ export default function PublicHeader() {
             <Image 
               src="/logo.png" 
               alt="GhostSync" 
-              width={420} 
-              height={140}
-              className="h-24 md:h-32 lg:h-36 w-auto"
+              width={160} 
+              height={160}
+              className="w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36"
               priority
             />
           </Link>

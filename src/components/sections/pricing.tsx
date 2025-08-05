@@ -15,57 +15,53 @@ interface PricingPlan {
 
 const plans: PricingPlan[] = [
   {
-    name: 'Freelancer/Contractor',
-    description: 'Perfect for solo ghostwriters and freelancers',
+    name: 'Solo Ghost',
+    description: 'Perfect for independent ghostwriters & freelancers',
     monthlyPrice: 50,
     annualPrice: 42,
     seats: '1 seat',
     features: [
       'Free trial: 1 client dashboard',
-      'Unlimited projects',
-      'Client portal access',
-      'Document collaboration',
-      'Project timeline tracking',
-      'Milestone-based invoicing',
+      'Unlimited writing projects',
+      'Client portal for real-time updates & approvals',
+      'Live document co-editing',
+      'Visual project timeline & task board',
+      'Automated milestone-based invoicing',
+      'Secure client messaging system',
       'Email support',
-      '50GB storage'
+      '50GB file & media storage'
     ]
   },
   {
-    name: 'Ghostwriting Firms',
-    description: 'Ideal for mid-level firms and startups',
+    name: 'Ghostwriting Agencies',
+    description: 'Built for boutique to mid-sized ghostwriting agencies',
     monthlyPrice: 299,
     annualPrice: 249,
     popular: true,
     seats: '5 seats',
     features: [
-      'Free trial: 1 client dashboard',
-      'Everything in Freelancer',
-      'Team collaboration tools',
-      'Advanced analytics',
-      'Custom branding',
-      'Priority support',
-      'API access',
-      '500GB storage',
-      'Client management system'
+      'Everything in Solo Ghost, plus:',
+      'Team collaboration: Assign roles, tasks, and permissions',
+      'Multi-client dashboard & organization folders',
+      'Internal team notes (invisible to client)',
+      'Project templates & reusable outlines',
+      'Priority email & chat support',
+      '500GB storage'
     ]
   },
   {
-    name: 'Publishing Companies',
-    description: 'For publishers contracting ghostwriters',
+    name: 'Publishers',
+    description: 'For large publishers or platforms working with multiple ghostwriters',
     monthlyPrice: 1000,
     annualPrice: 833,
     seats: '10 seats',
     features: [
-      'Free trial: 1 client dashboard',
-      'Everything in Firms',
-      'Contractor management',
-      'White-label options',
-      '24/7 phone support',
-      'Custom integrations',
-      'Dedicated account manager',
-      'Unlimited storage',
-      'Enterprise security'
+      'Everything in Ghostwriting Agencies, plus:',
+      'Contractor database with assignment & workload tracking',
+      'White-label options for client-facing portal & emails',
+      '24/7 phone & chat support',
+      'Custom editorial workflows (e.g., approval chains)',
+      'Unlimited document storage'
     ]
   }
 ]

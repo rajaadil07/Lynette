@@ -10,15 +10,15 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "How is this different from email and Google Docs?",
-    answer: "Email threads get messy, attachments get lost, and clients get confused. GhostSync creates one organized hub where everything lives—drafts, feedback, payments, deadlines. Your clients get a professional portal, you get peace of mind."
+    question: "How is GhostSync different from email, Google Docs, and existing project management software?",
+    answer: "GhostSync is built by ghostwriters, for ghostwriters. No more messy emails or missing files—just one streamlined hub for drafts, feedback, payments, and deadlines. Your clients get a polished dashboard, and you get peace of mind."
   },
   {
-    question: "Can I white-label the client experience?",
+    question: "May I 'white-label' the customer experience?",
     answer: "Yes! Professional and Team plans include custom branding. Add your logo, colors, and custom domain so clients see your brand throughout their experience."
   },
   {
-    question: "What happens to my data if I cancel?",
+    question: "What happens to my data if I cancel my subscription?",
     answer: "Your data is always yours. Export everything anytime—all documents, client info, and project history. We'll keep your account accessible for 90 days after cancellation for easy transition."
   },
   {
