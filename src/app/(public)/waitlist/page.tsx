@@ -1,14 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 
 export default function WaitlistPage() {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [countdown, setCountdown] = useState(5)
+
+  useEffect(() => {
+    if (isSubmitted && countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1)
+      }, 1000)
+      return () => clearTimeout(timer)
+    } else if (isSubmitted && countdown === 0) {
+      router.push('/')
+    }
+  }, [isSubmitted, countdown, router])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -56,8 +70,11 @@ export default function WaitlistPage() {
           <h1 className="text-3xl font-inter font-semibold text-[#F8F9FA] mb-4">
             You&apos;re on the list!
           </h1>
-          <p className="text-lg text-[#F8F9FA]/60 mb-8">
+          <p className="text-lg text-[#F8F9FA]/60 mb-4">
             We&apos;ll notify you as soon as GhostSync is ready for early access.
+          </p>
+          <p className="text-sm text-[#F8F9FA]/40 mb-8">
+            Redirecting to homepage in {countdown} seconds...
           </p>
           
           <Link href="/">
