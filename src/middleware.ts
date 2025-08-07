@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// Define public routes that don't require authentication
-const publicRoutes = [
+// Define exact public routes
+const exactPublicRoutes = [
   '/',
   '/login',
   '/signup',
@@ -12,10 +12,15 @@ const publicRoutes = [
   '/about',
   '/contact',
   '/faq',
-  '/api/waitlist',
-  '/api/contact',
   '/error',
   '/verify-email'
+]
+
+// Define public route patterns (for routes with dynamic segments)
+const publicRoutePatterns = [
+  '/blog',
+  '/api/waitlist',
+  '/api/contact'
 ]
 
 // Define protected route patterns
@@ -32,10 +37,16 @@ const protectedRoutePatterns = [
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Check if the current path is a public route
-  const isPublicRoute = publicRoutes.some(route => 
-    pathname === route
+  // Check if the current path is an exact public route
+  const isExactPublicRoute = exactPublicRoutes.includes(pathname)
+  
+  // Check if the current path matches any public route pattern
+  const isPublicRoutePattern = publicRoutePatterns.some(pattern => 
+    pathname.startsWith(pattern)
   )
+  
+  // Combine both checks
+  const isPublicRoute = isExactPublicRoute || isPublicRoutePattern
 
   // Check if the current path matches any protected route pattern
   const isProtectedRoute = protectedRoutePatterns.some(pattern => 
