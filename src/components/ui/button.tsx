@@ -76,24 +76,26 @@ export const Button: FC<ButtonProps> = ({
       backdrop-blur-sm
     `,
     
-    // Auth primary - Clean professional blue
+    // Auth primary - Glass morphism with blue accent
     'auth-primary': `
       px-6 py-2.5 rounded-lg text-white font-medium text-sm
-      bg-[#5D9CEC] hover:bg-[#4A8BE8] active:bg-[#3B7BE0]
-      shadow-[0_2px_8px_rgba(93,156,236,0.25)] hover:shadow-[0_4px_12px_rgba(93,156,236,0.35)]
-      border border-[#5D9CEC]/20 hover:border-[#4A8BE8]/30
+      bg-[#5D9CEC]/80 hover:bg-[#4A8BE8]/90 active:bg-[#3B7BE0]/90
+      backdrop-blur-md
+      shadow-[0_4px_12px_rgba(93,156,236,0.2)] hover:shadow-[0_6px_20px_rgba(93,156,236,0.3)]
+      border border-white/10 hover:border-white/20
       transition-all duration-200 ease-out
-      focus:ring-2 focus:ring-[#5D9CEC]/40 focus:ring-offset-2 focus:ring-offset-brand-dark
+      focus:ring-2 focus:ring-[#5D9CEC]/40 focus:ring-offset-2 focus:ring-offset-transparent
     `,
     
-    // Auth secondary - Elegant minimal
+    // Auth secondary - Pure glass morphism
     'auth-secondary': `
-      px-6 py-2.5 rounded-lg text-[#F8F9FA] font-medium text-sm
-      bg-transparent hover:bg-white/5 active:bg-white/10
-      border border-[#F8F9FA]/20 hover:border-[#F8F9FA]/30
-      shadow-[0_1px_4px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)]
+      px-6 py-2.5 rounded-lg text-white font-medium text-sm
+      bg-white/10 hover:bg-white/15 active:bg-white/20
+      backdrop-blur-md
+      border border-white/20 hover:border-white/30
+      shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)]
       transition-all duration-200 ease-out
-      focus:ring-2 focus:ring-[#F8F9FA]/30 focus:ring-offset-2 focus:ring-offset-brand-dark
+      focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-transparent
     `,
     
     // Search variant

@@ -88,7 +88,7 @@ export default function WaitlistPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1B1B1F] flex flex-col items-center justify-start px-6 pt-40 md:pt-48 lg:pt-52 pb-12 relative overflow-hidden">
+    <div className="min-h-screen bg-[#1B1B1F] flex flex-col items-center justify-start px-6 pt-24 md:pt-28 lg:pt-32 pb-12 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#FBC02D]/5 rounded-full blur-3xl" />

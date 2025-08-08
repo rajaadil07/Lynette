@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PublicHeader } from "@/components";
+import PublicHeader from "@/components/headers/PublicHeader";
 
 export const metadata: Metadata = {
   title: "GhostSync",

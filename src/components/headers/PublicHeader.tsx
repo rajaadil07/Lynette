@@ -14,17 +14,17 @@ export default function PublicHeader() {
   }
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50 bg-brand-dark/80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black/20 via-transparent to-transparent backdrop-blur-md">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-32 md:h-40 lg:h-44">
+        <div className="flex justify-between items-center h-20 md:h-24 lg:h-28">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center group transition-transform hover:scale-105">
             <Image 
               src="/logo.png" 
               alt="GhostSync" 
-              width={160} 
-              height={160}
-              className="w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36"
+              width={120} 
+              height={120}
+              className="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg"
               priority
             />
           </Link>

@@ -5,7 +5,7 @@ import { Footer } from "@/components/sections";
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <main className="flex-1 flex flex-col items-center justify-center px-6 pt-40 md:pt-48 lg:pt-56 pb-20">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 pt-24 md:pt-28 lg:pt-32 pb-20">
         <header className="text-center mb-24 lg:mb-32">
           <h1 className="font-inter text-5xl md:text-6xl lg:text-7xl font-light text-[#F8F9FA] leading-[1.1] tracking-tight">
             Privacy

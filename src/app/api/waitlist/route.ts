@@ -17,9 +17,9 @@ export async function POST(request: Request) {
     const timestamp = new Date().toISOString()
     
     const { data, error } = await resend.emails.send({
-      from: 'GhostSync <ghost@ghostsync.ai>',
-      to: ['ghost@ghostsync.ai'],
-      subject: 'New Waitlist Signup',
+      from: 'GhostSync <waitlist@ghostsync.ai>',
+      to: ['ghostsync2025@gmail.com'],
+      subject: 'New Waitlist Signup - GhostSync',
       html: `
         <!DOCTYPE html>
         <html>
@@ -29,101 +29,58 @@ export async function POST(request: Request) {
             <style>
               body {
                 margin: 0;
-                padding: 0;
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                background-color: #1B1B1F;
-                color: #F8F9FA;
+                padding: 20px;
+                font-family: Arial, sans-serif;
+                background-color: #ffffff;
+                color: #000000;
+                line-height: 1.6;
               }
               .container {
                 max-width: 600px;
                 margin: 0 auto;
-                padding: 40px 20px;
-              }
-              .header {
-                text-align: center;
-                margin-bottom: 40px;
-              }
-              .logo {
-                width: 48px;
-                height: 48px;
-                margin: 0 auto 20px;
-                background-color: #5D9CEC;
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                background-color: #ffffff;
               }
               h1 {
                 font-size: 24px;
-                font-weight: 300;
-                margin: 0;
-                color: #F8F9FA;
+                font-weight: bold;
+                margin: 0 0 20px 0;
+                color: #000000;
               }
-              .content {
-                background-color: rgba(248, 249, 250, 0.05);
-                border: 1px solid rgba(248, 249, 250, 0.1);
-                border-radius: 12px;
-                padding: 32px;
-                margin-bottom: 32px;
+              .info {
+                margin: 20px 0;
               }
               .label {
-                font-size: 14px;
-                color: rgba(248, 249, 250, 0.6);
-                margin-bottom: 8px;
+                font-weight: bold;
+                color: #000000;
+                margin-bottom: 5px;
               }
               .value {
-                font-size: 18px;
-                color: #F8F9FA;
-                margin-bottom: 24px;
-              }
-              .value:last-child {
-                margin-bottom: 0;
-              }
-              .footer {
-                text-align: center;
-                font-size: 14px;
-                color: rgba(248, 249, 250, 0.4);
-              }
-              .accent {
-                color: #5D9CEC;
+                color: #000000;
+                margin-bottom: 15px;
               }
             </style>
           </head>
           <body>
             <div class="container">
-              <div class="header">
-                <div class="logo">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F8F9FA" opacity="0.9"/>
-                    <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#F8F9FA" stroke-width="1.5" opacity="0.9"/>
-                  </svg>
-                </div>
-                <h1>New Waitlist Signup</h1>
-              </div>
+              <h1>New Waitlist Signup</h1>
               
-              <div class="content">
-                <div>
-                  <div class="label">Email Address</div>
-                  <div class="value">${email}</div>
-                </div>
+              <div class="info">
+                <div class="label">Email:</div>
+                <div class="value">${email}</div>
                 
-                <div>
-                  <div class="label">Signed Up</div>
-                  <div class="value">${new Date(timestamp).toLocaleString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: '2-digit',
-                    timeZoneName: 'short'
-                  })}</div>
-                </div>
+                <div class="label">Time:</div>
+                <div class="value">${new Date(timestamp).toLocaleString('en-US', {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: '2-digit',
+                  timeZoneName: 'short'
+                })}</div>
               </div>
               
-              <div class="footer">
-                <p>Someone just joined the <span class="accent">GhostSync</span> waitlist.</p>
-              </div>
+              <p>Someone just joined the GhostSync waitlist.</p>
             </div>
           </body>
         </html>
