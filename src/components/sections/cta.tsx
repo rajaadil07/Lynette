@@ -27,7 +27,7 @@ export default function CTASection() {
           >
             Ready to sync
             <br />
-            <span className="font-lora italic text-[#5D9CEC]">
+            <span className="text-[#5D9CEC]">
               your business?
             </span>
           </motion.h2>

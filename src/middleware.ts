@@ -58,10 +58,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // For protected routes, redirect to login
+  // For protected routes, check for mock authentication
   if (isProtectedRoute) {
-    // In production, you would check for a valid session/token here
-    // For now, we'll always redirect to login
+    // Check for mock auth cookie
+    const mockAuth = request.cookies.get('mock-auth')
+    
+    // If mock auth cookie exists and is valid, allow access
+    if (mockAuth?.value === 'authenticated') {
+      return NextResponse.next()
+    }
+    
+    // Otherwise redirect to login
     const loginUrl = new URL('/login', request.url)
     loginUrl.searchParams.set('from', pathname)
     return NextResponse.redirect(loginUrl)

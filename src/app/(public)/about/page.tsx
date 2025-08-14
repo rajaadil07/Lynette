@@ -1,28 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
-
-const team = [
-  {
-    name: 'Connor Martin',
-    image: '/connor.png',
-    bio: 'Connor brings over a decade of experience in ghostwriting and content strategy. Having worked with Fortune 500 executives and bestselling authors, he recognized the need for a platform built specifically for the unique workflows of professional ghostwriters.'
-  },
-  {
-    name: 'Emma Saunders',
-    image: '/emma.png',
-    bio: 'Emma specializes in optimizing creative workflows and project management systems. With her background in publishing and digital operations, she ensures GhostSync runs smoothly for writers and clients alike.'
-  },
-  {
-    name: 'Megan Hailey',
-    image: '/advisor.png',
-    bio: 'Megan advises on product strategy and market positioning. As a former ghostwriter turned tech entrepreneur, she brings unique insights into the intersection of writing services and technology.'
-  }
-]
 
 const values = [
   {
-    title: 'Built by Writers',
-    description: 'We&apos;ve been in your shoes. Every feature is designed with the ghostwriter&apos;s workflow in mind.',
+    title: 'Writer Made',
+    description: 'Built from the ground up by real ghostwriters, GhostSync understands your business and gives you tools to run it flawlessly.',
     icon: '✍️'
   },
   {
@@ -31,8 +12,8 @@ const values = [
     icon: '🔒'
   },
   {
-    title: 'Simplicity Matters',
-    description: 'No bloat, no complexity. Just the tools you need to run your ghostwriting business efficiently.',
+    title: 'Clarity',
+    description: 'No more inbox hunts or scattered files. GhostSync centralizes everything, keeping clients aligned, vendors focused, and your workflow smooth.',
     icon: '⚡'
   }
 ]
@@ -48,7 +29,7 @@ export default function AboutPage() {
           </h1>
           <div className="w-16 h-0.5 bg-white/30 mx-auto mb-10"></div>
           <p className="text-lg text-white/60 font-inter max-w-xl mx-auto leading-relaxed font-light">
-            Building the operating system for professional ghostwriters
+            Revolutionizing the way professional ghostwriters work
           </p>
         </div>
 
@@ -59,7 +40,7 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-8 text-white/70 font-inter text-lg leading-relaxed font-light">
             <p>
-              We&apos;re a collective of seasoned ghostwriters who&apos;ve worked with authors, experts, publishers, platforms, and public figures. Across every project, one thing was clear: the workflow needed work.
+              We&apos;re a collective of experienced ghostwriters who&apos;ve worked with individuals, subject-matter experts, top publishers, social media platforms like LinkedIn and X, politicians, thought leaders, public figures, and more. Across all these projects, one thing has remained clear: the workflow processes could be better.
             </p>
             <p className="text-xl font-normal text-white">
               So we built a better one.
@@ -94,43 +75,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="bg-white/[0.02] backdrop-blur-sm border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24">
-          <h2 className="text-3xl lg:text-4xl font-medium text-white mb-16 font-avenir text-center">
-            Meet the Team
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-16">
-            {team.map((member, index) => (
-              <div key={index} className="group">
-                {/* Image Container - Perfectly aligned */}
-                <div className="mb-10 relative mx-auto w-64 h-64 overflow-hidden rounded-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50"></div>
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={256}
-                    height={256}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B1B1F]/80 via-transparent to-transparent"></div>
-                </div>
-                
-                {/* Member Info */}
-                <h3 className="text-xl font-medium text-white mb-4 font-avenir text-center">
-                  {member.name}
-                </h3>
-                <p className="text-white/60 font-inter text-sm leading-relaxed font-light text-center">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="mx-auto max-w-4xl px-6 lg:px-8 py-24">
         <div className="bg-white/3 border border-white/10 rounded-xl p-16 text-center">
@@ -156,7 +100,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }

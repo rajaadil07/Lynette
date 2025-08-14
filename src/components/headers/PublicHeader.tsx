@@ -24,7 +24,7 @@ export default function PublicHeader() {
               alt="GhostSync" 
               width={120} 
               height={120}
-              className="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg"
+              className="w-24 h-24 md:w-28 md:h-28 drop-shadow-lg"
               priority
             />
           </Link>

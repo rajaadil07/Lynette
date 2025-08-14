@@ -2,37 +2,47 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface LoginFormProps {
-  onSubmit: (formData: FormData) => Promise<{ error?: string }>;
+  onSubmit: (formData: FormData) => Promise<{ error?: string; success?: boolean }>;
 }
 
 export default function LoginForm({ onSubmit }: LoginFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   async function handleSubmit(formData: FormData) {
     setError(null);
     setIsLoading(true);
     
     try {
-      const result = await onSubmit(formData);
+      // Quick, professional loading
+      const [result] = await Promise.all([
+        onSubmit(formData),
+        new Promise(resolve => setTimeout(resolve, 600)) // Just enough for smooth UX
+      ]);
+      
       if (result?.error) {
         setError(result.error);
+        setIsLoading(false);
+      } else if (result?.success) {
+        // Direct redirect, no extra delay
+        router.push('/dashboard');
       }
     } catch {
       setError('An unexpected error occurred. Please try again.');
-    } finally {
       setIsLoading(false);
     }
   }
   return (
     <div className="min-h-screen bg-[#1B1B1F] flex flex-col items-center justify-start px-6 pt-40 md:pt-48 lg:pt-52 pb-12 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#5D9CEC]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FBC02D]/5 rounded-full blur-3xl" />
-      </div>
+        {/* Background effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#5D9CEC]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FBC02D]/5 rounded-full blur-3xl" />
+        </div>
 
       <div className="w-full max-w-md relative z-10">
         {/* Logo */}
@@ -53,7 +63,13 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
         )}
 
         {/* Login Form */}
-        <form action={handleSubmit} className="space-y-5 mb-6">
+        <form 
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            await handleSubmit(formData);
+          }}
+          className="space-y-5 mb-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-[#F8F9FA]/80 mb-2 font-inter">
               Email address
@@ -85,9 +101,19 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
           <button 
             type="submit"
             disabled={isLoading}
-            className="w-full bg-[#5D9CEC] hover:bg-[#4D8CDB] disabled:bg-[#5D9CEC]/50 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 text-base shadow-lg hover:shadow-xl font-inter disabled:cursor-not-allowed"
+            className="w-full bg-[#5D9CEC] hover:bg-[#4D8CDB] disabled:bg-[#5D9CEC]/70 disabled:hover:bg-[#5D9CEC]/70 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 text-base shadow-lg hover:shadow-xl font-inter disabled:cursor-not-allowed flex items-center justify-center space-x-2"
           >
-            {isLoading ? 'Signing in...' : 'Sign in'}
+            {isLoading ? (
+              <>
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Authenticating...</span>
+              </>
+            ) : (
+              <span>Sign in</span>
+            )}
           </button>
         </form>
 

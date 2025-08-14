@@ -19,11 +19,11 @@ export default function BlogPage() {
         {/* Header */}
         <div className="text-center mb-32">
           <h1 className="text-6xl lg:text-8xl font-semibold text-white mb-10 font-avenir tracking-tight leading-none">
-            Blog
+            The Sync
           </h1>
           <div className="w-16 h-0.5 bg-white/30 mx-auto mb-10"></div>
           <p className="text-lg text-white/60 font-inter max-w-xl mx-auto leading-relaxed font-light">
-            Insights and strategies for professional ghostwriters
+            Insights, strategies, and industry updates for ghostwriters
           </p>
         </div>
 

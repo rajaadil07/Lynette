@@ -37,7 +37,7 @@ export default function HeroSection() {
           }`}>
             The Professional Platform for
             <br />
-            <span className="font-lora italic text-[#5D9CEC]">
+            <span className="text-[#5D9CEC]">
               Ghostwriters
             </span>
           </h1>
