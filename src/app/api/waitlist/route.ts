@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend only if API key exists
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
 export async function POST(request: Request) {
   try {
@@ -15,6 +16,18 @@ export async function POST(request: Request) {
     }
 
     const timestamp = new Date().toISOString()
+
+    // Check if Resend is configured
+    if (!resend) {
+      console.warn('⚠️ Resend API key not configured. Waitlist signup logged but no emails sent.')
+      console.log('📧 Waitlist signup (dev mode):', { email, timestamp })
+      
+      // Return success even without email service for development
+      return NextResponse.json(
+        { message: 'Successfully joined waitlist (development mode)' },
+        { status: 200 }
+      )
+    }
     
     // Send welcome email to the user
     const { data: welcomeData, error: welcomeError } = await resend.emails.send({

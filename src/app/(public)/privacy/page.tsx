@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
             
             <div className="text-[#F8F9FA]/80 font-inter text-sm leading-relaxed space-y-6">
               <p>
-                GhostSync ("we," "our," "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our website, software, and services (collectively, the "Services").
+                GhostSync (&quot;we,&quot; &quot;our,&quot; &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our website, software, and services (collectively, the &quot;Services&quot;).
               </p>
               <p>
                 By using our Services, you agree to the terms of this Privacy Policy.
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
                 <ul className="ml-6 space-y-1">
                   <li>• <strong>Access</strong> – Request a copy of the information we hold about you.</li>
                   <li>• <strong>Correction</strong> – Request correction of inaccurate or incomplete information.</li>
-                  <li>• <strong>Deletion</strong> – Request deletion of your information ("right to be forgotten").</li>
+                  <li>• <strong>Deletion</strong> – Request deletion of your information (&quot;right to be forgotten&quot;).</li>
                   <li>• <strong>Restriction</strong> – Request limitation of processing in certain cases.</li>
                   <li>• <strong>Portability</strong> – Request your information in a structured, machine-readable format.</li>
                   <li>• <strong>Opt-out</strong> – Object to certain uses (such as marketing emails).</li>
@@ -141,7 +141,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div>
-                <h3 className="font-inter text-lg text-[#F8F9FA] mb-3">9. Children's Privacy</h3>
+                <h3 className="font-inter text-lg text-[#F8F9FA] mb-3">9. Children&apos;s Privacy</h3>
                 <p>
                   Our Services are not intended for individuals under the age of 18. We do not knowingly collect personal data from minors.
                 </p>
@@ -150,7 +150,7 @@ export default function PrivacyPolicyPage() {
               <div>
                 <h3 className="font-inter text-lg text-[#F8F9FA] mb-3">10. Changes to this Policy</h3>
                 <p>
-                  We may update this Privacy Policy from time to time. The "Effective Date" at the top indicates the latest revision. Significant changes will be communicated via email or through the Services.
+                  We may update this Privacy Policy from time to time. The &quot;Effective Date&quot; at the top indicates the latest revision. Significant changes will be communicated via email or through the Services.
                 </p>
               </div>
 
