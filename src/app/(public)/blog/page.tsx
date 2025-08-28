@@ -9,6 +9,15 @@ const blogPosts = [
     date: 'August 2025',
     readTime: '5 min read',
     featured: true
+  },
+  {
+    slug: 'steal-our-stack',
+    title: 'Steal Our Stack: 4 Tools That Change the Game',
+    excerpt: 'Your stack is your toolkit, a curated set of platforms and resources that keep your business running smoothly. Today, I\'m pulling back the curtain and letting you steal ours.',
+    author: 'Emma',
+    date: 'August 2025',
+    readTime: '7 min read',
+    featured: false
   }
 ]
 
