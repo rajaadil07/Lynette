@@ -2,13 +2,22 @@ import Link from 'next/link'
 
 const blogPosts = [
   {
+    slug: 'ghostwriting-age-of-ai',
+    title: 'Ghostwriting in the Age of AI: Why the Craft Is Evolving, Not Ending',
+    excerpt: 'AI is changing the writing game fast. But for ghostwriters, this isn\'t the apocalypse. It\'s the evolution. The ones who adapt? They\'ll win bigger than ever.',
+    author: 'Connor',
+    date: 'September 2025',
+    readTime: '6 min read',
+    featured: true
+  },
+  {
     slug: 'ghostwriting-is-a-business',
     title: 'Ghostwriting Is a Business. Start Running It Like One.',
     excerpt: 'You\'re not just a writer. You\'re the operator of a business. And if you\'re still managing client chaos with post-its and a prayer, you\'re building on sand.',
     author: 'Connor',
     date: 'August 2025',
     readTime: '5 min read',
-    featured: true
+    featured: false
   },
   {
     slug: 'steal-our-stack',
